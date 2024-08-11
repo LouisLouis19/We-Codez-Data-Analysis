@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Pandas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Introduction to Pandas</h1>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Introduction to Pandas</a></li>
+                    <li><a href="numpy_tutorial.html">Introduction to NumPy</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main>
+            <section class="overview">
+                <h2>Introduction to Pandas</h2>
+                <p>Pandas is a powerful library for data analysis and manipulation in Python. It provides data structures like Series and DataFrame, which are essential for handling and analyzing data.</p>
+
+                <h3>What is Pandas?</h3>
+                <p>Pandas is a data analysis and manipulation library. It is widely used for cleaning, analyzing, and visualizing data. It provides two primary data structures: Series and DataFrame, which allow for efficient data handling.</p>
+
+                <h3>Installation</h3>
+                <p>To install Pandas, use pip:</p>
+                <pre class="code-block">pip install pandas</pre>
+                <p>To check the version of Pandas installed:</p>
+                <pre class="code-block">import pandas as pd
+print(pd.__version__)</pre>
+            </section>
+
+            <section class="getting-started">
+                <h2>Getting Started</h2>
+
+                <h3>Importing Pandas</h3>
+                <p>To use Pandas, you need to import it into your Python script:</p>
+                <pre class="code-block">import pandas as pd</pre>
+
+                <h3>Pandas Data Structures</h3>
+                <p>Pandas provides two primary data structures:</p>
+                <ul>
+                    <li><strong>Series</strong>: A one-dimensional array-like object.</li>
+                    <li><strong>DataFrame</strong>: A two-dimensional, size-mutable, and potentially heterogeneous tabular data structure.</li>
+                </ul>
+            </section>
+
+            <section class="creating-structures">
+                <h2>Creating DataFrames and Series</h2>
+
+                <h3>Creating a Series</h3>
+                <p>Series can be created from lists, dictionaries, or scalar values:</p>
+                <pre class="code-block">import pandas as pd
+
+# From a list
+series_list = pd.Series([1, 2, 3, 4])
+
+# From a dictionary
+series_dict = pd.Series({'a': 1, 'b': 2})
+
+# From a scalar value
+series_scalar = pd.Series(5, index=['a', 'b', 'c'])</pre>
+
+                <h3>Creating a DataFrame</h3>
+                <p>DataFrames can be created from dictionaries, lists of lists, or by reading from files:</p>
+                <pre class="code-block">import pandas as pd
+
+# From a dictionary
+data_dict = {'Column1': [1, 2], 'Column2': [3, 4]}
+df_dict = pd.DataFrame(data_dict)
+
+# From a list of lists
+data_list = [[1, 2], [3, 4]]
+df_list = pd.DataFrame(data_list, columns=['Column1', 'Column2'])
+
+# Reading from a CSV file
+df_csv = pd.read_csv('file.csv')</pre>
+            </section>
+
+            <section class="exploring-dataframes">
+                <h2>Exploring DataFrames</h2>
+
+                <h3>Basic DataFrame Operations</h3>
+                <p>Perform basic operations to view and understand your data:</p>
+                <pre class="code-block">import pandas as pd
+
+df = pd.DataFrame({'A': [1, 2], 'B': [3, 4]})
+print(df.head())  # View the first few rows
+print(df.tail())  # View the last few rows
+print(df.info())  # Get basic info about the DataFrame</pre>
+
+                <h3>Descriptive Statistics</h3>
+                <p>Use descriptive statistics to summarize the data:</p>
+                <pre class="code-block">import pandas as pd
+
+df = pd.DataFrame({'A': [1, 2, 3, 4, 5]})
+print(df.describe())  # Summary statistics for numerical columns</pre>
+            </section>
+
+            <section class="indexing-selecting">
+                <h2>Indexing and Selecting Data</h2>
+
+                <h3>Selecting Columns and Rows</h3>
+                <p>Select columns and rows using column names, `.loc[]`, and `.iloc[]`:</p>
+                <pre class="code-block">import pandas as pd
+
+df = pd.DataFrame({'A': [1, 2], 'B': [3, 4]})
+print(df['A'])            # Select a column
+print(df.loc[0])         # Select a row by label
+print(df.iloc[0])        # Select a row by position</pre>
+
+                <h3>Boolean Indexing</h3>
+                <p>Filter rows based on conditions:</p>
+                <pre class="code-block">import pandas as pd
+
+df = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6]})
+filtered_df = df[df['A'] > 1]
+print(filtered_df)</pre>
+            </section>
+
+            <section class="practice-exercises">
+                <h2>Practice Exercises</h2>
+
+                <h3>Simple Exercises</h3>
+                <h4>1. Create a DataFrame from a Dictionary</h4>
+                <p>Create a DataFrame from a dictionary where the keys are column names and the values are lists of data.</p>
+                <details>
+                    <summary>Solution</summary>
+                    <div>
+                        <pre class="code-block">import pandas as pd
+
+data = {'Name': ['Alice', 'Bob', 'Charlie'], 'Age': [24, 27, 22]}
+df = pd.DataFrame(data)
+print(df)</pre>
+                    </div>
+                </details>
+
+                <h4>2. Handle Missing Data</h4>
+                <p>Create a DataFrame with some missing values. Fill missing values with a specified value or drop rows with missing values.</p>
+                <details>
+                    <summary>Solution</summary>
+                    <div>
+                        <pre class="code-block">import pandas as pd
+import numpy as np
+
+data = {'A': [1, np.nan, 3], 'B': [4, 5, np.nan]}
+df = pd.DataFrame(data)
+df_filled = df.fillna(0)  # Fill missing values with 0
+df_dropped = df.dropna()  # Drop rows with missing values
+print(df_filled)
+print(df_dropped)</pre>
+                    </div>
+                </details>
+
+                <h3>Advanced Exercises</h3>
+                <h4>1. Apply Functions to DataFrame</h4>
+                <p>Use the `.apply()` method to apply a function to each element in a DataFrame.</p>
+                <details>
+                    <summary>Solution</summary>
+                    <div>
+                        <pre class="code-block">import pandas as pd
+
+def square(x):
+    return x ** 2
+
+df = pd.DataFrame({'A': [1, 2, 3]})
+df_squared = df.applymap(square)
+print(df_squared)</pre>
+                    </div>
+                </details>
+
+                <h4>2. Group Data and Aggregate</h4>
+                <p>Create a DataFrame, group data by a column, and calculate the mean for each group.</p>
+                <details>
+                    <summary>Solution</summary>
+                    <div>
+                        <pre class="code-block">import pandas as pd
+
+data = {'Category': ['A', 'B', 'A', 'B'], 'Value': [10, 20, 30, 40]}
+df = pd.DataFrame(data)
+grouped_df = df.groupby('Category').mean()
+print(grouped_df)</pre>
+                    </div>
+                </details>
+
+                <h4>3. Merge DataFrames</h4>
+                <p>Create two DataFrames and merge them based on a common column.</p>
+                <details>
+                    <summary>Solution</summary>
+                    <div>
+                        <pre class="code-block">import pandas as pd
+
+df1 = pd.DataFrame({'ID': [1, 2], 'Name': ['Alice', 'Bob']})
+df2 = pd.DataFrame({'ID': [1, 2], 'Score': [85, 90]})
+merged_df = pd.merge(df1, df2, on='ID')
+print(merged_df)</pre>
+                    </div>
+                </details>
+            </section>
+
+            <footer>
+                <p>&copy; 2024 We Codez</p>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>

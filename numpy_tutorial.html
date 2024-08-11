@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to NumPy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Introduction to NumPy</h1>
+        <h2>Getting Started with NumPy for Scientific Computing</h2>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Introduction to Pandas</a></li>
+                    <li><a href="numpy_tutorial.html" class="active">Introduction to NumPy</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main>
+            <section class="overview">
+                <h2>Overview</h2>
+                <p>This tutorial introduces NumPy, a fundamental package for scientific computing in Python.</p>
+
+                <h3>What is NumPy?</h3>
+                <p>NumPy is a library in Python that provides support for arrays and matrices, along with a collection of mathematical functions to operate on these arrays. It is essential for scientific computing and data analysis.</p>
+
+                <h3>Installation</h3>
+                <p>To install NumPy, use the following pip command:</p>
+                <pre class="code-block">pip install numpy</pre>
+                <p>After installation, you can check the version using:</p>
+                <pre class="code-block">import numpy as np
+print(np.__version__)</pre>
+            </section>
+
+            <section class="getting-started">
+                <h2>Getting Started</h2>
+                <h3>Importing NumPy</h3>
+                <p>To use NumPy in your Python script, you need to import it:</p>
+                <pre class="code-block">import numpy as np</pre>
+            </section>
+
+            <section class="numpy-arrays">
+                <h2>NumPy Arrays</h2>
+                <h3>Creating Arrays</h3>
+                <p>Arrays can be created from lists or tuples:</p>
+                <pre class="code-block">array1 = np.array([1, 2, 3, 4])
+array2 = np.array([[1, 2], [3, 4]])</pre>
+
+                <p>You can also use built-in functions:</p>
+                <pre class="code-block">zeros = np.zeros((2, 2))
+ones = np.ones((2, 2))
+arange = np.arange(0, 10, 2)</pre>
+
+                <h3>Array Attributes</h3>
+                <p>Learn about array attributes:</p>
+                <pre class="code-block">print(array1.shape)  # (4,)
+print(array2.shape)  # (2, 2)
+print(array1.size)   # 4
+print(array2.dtype)  # int64</pre>
+            </section>
+
+            <section class="basic-operations">
+                <h2>Basic Array Operations</h2>
+                <h3>Indexing and Slicing</h3>
+                <p>Access elements and subarrays:</p>
+                <pre class="code-block">print(array2[0, 1])      # 2
+print(array2[:, 1])       # [2, 4]</pre>
+
+                <h3>Array Arithmetic</h3>
+                <p>Perform element-wise operations:</p>
+                <pre class="code-block">result = array1 + 2
+print(result)  # [3, 4, 5, 6]</pre>
+
+                <h3>Broadcasting</h3>
+                <p>Understand basic broadcasting:</p>
+                <pre class="code-block">array3 = np.array([[1], [2], [3]])
+array4 = np.array([1, 2])
+print(array3 + array4)  # Broadcasting example</pre>
+            </section>
+
+            <section class="array-manipulation">
+                <h2>Array Manipulation</h2>
+                <h3>Reshaping Arrays</h3>
+                <p>Change the shape of arrays:</p>
+                <pre class="code-block">reshaped = array1.reshape((2, 2))
+print(reshaped)</pre>
+
+                <h3>Flattening Arrays</h3>
+                <p>Convert arrays to 1D:</p>
+                <pre class="code-block">flattened = reshaped.flatten()
+print(flattened)</pre>
+
+                <h3>Transposing Arrays</h3>
+                <p>Transpose arrays:</p>
+                <pre class="code-block">transposed = array2.T
+print(transposed)</pre>
+            </section>
+
+            <section class="statistical-operations">
+                <h2>Statistical Operations</h2>
+                <h3>Descriptive Statistics</h3>
+                <p>Use methods like mean, median, std, and sum:</p>
+                <pre class="code-block">print(np.mean(array1))
+print(np.median(array1))
+print(np.std(array1))
+print(np.sum(array1))</pre>
+
+                <h3>Aggregation Functions</h3>
+                <p>Find min, max, and argmin:</p>
+                <pre class="code-block">print(np.min(array1))
+print(np.max(array1))
+print(np.argmin(array1))</pre>
+            </section>
+
+            <section class="practice">
+                <h2>Practice Exercises</h2>
+
+                <h3>Simple Exercises</h3>
+                <ul>
+                    <li>Create a NumPy array from a list and perform basic operations.</li>
+                    <li>Reshape an array and flatten it.</li>
+                    <li>Perform element-wise arithmetic operations on arrays.</li>
+                </ul>
+
+                <h3>Advanced Exercises</h3>
+                <ul>
+                    <li>Implement matrix multiplication using NumPy.</li>
+                    <li>Calculate statistical measures on a random array.</li>
+                    <li>Generate a random array and perform broadcasting operations.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2024 We Codez</p>
+    </footer>
+</body>
+</html>
