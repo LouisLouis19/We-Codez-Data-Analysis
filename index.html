@@ -18,7 +18,6 @@
             <li>
               <a href="index.html" class="active">Introduction to Pandas</a>
             </li>
-            <li><a href="numpy_tutorial.html">Introduction to NumPy</a></li>
           </ul>
         </nav>
       </aside>
@@ -325,14 +324,14 @@ print("\nDataFrame after removing duplicates based on column 'A':\n", df_unique_
           <details>
             <summary>Solution</summary>
             <div>
-              <pre class="code-block">
-        import pandas as pd
-        
-        data = {'Name': ['Alice', 'Bob', 'Charlie'], 'Age': [24, 27, 22]}
-        df = pd.DataFrame(data)
-        print(df)</pre>
+              <pre class="code-block">import pandas as pd
+
+data = {'Name': ['Alice', 'Bob', 'Charlie'], 'Age': [24, 27, 22]}
+df = pd.DataFrame(data)
+print(df)</pre>
             </div>
           </details>
+          <br>
         
           <h4>2. Handle Missing Data</h4>
           <p>
@@ -341,139 +340,314 @@ print("\nDataFrame after removing duplicates based on column 'A':\n", df_unique_
           <details>
             <summary>Solution</summary>
             <div>
-              <pre class="code-block">
-        import pandas as pd
-        import numpy as np
-        
-        data = {'A': [1, np.nan, 3], 'B': [4, 5, np.nan]}
-        df = pd.DataFrame(data)
-        df_filled = df.fillna(0)  # Fill missing values with 0
-        df_dropped = df.dropna()  # Drop rows with missing values
-        print(df_filled)
-        print(df_dropped)</pre>
+              <pre class="code-block">import pandas as pd
+import numpy as np
+
+data = {'A': [1, np.nan, 3], 'B': [4, 5, np.nan]}
+df = pd.DataFrame(data)
+df_filled = df.fillna(0)  # Fill missing values with 0
+df_dropped = df.dropna()  # Drop rows with missing values
+print(df_filled)
+print(df_dropped)</pre>
             </div>
           </details>
-        
-          <h3>Advanced Exercises</h3>
-          <h4>1. Indexing and Selecting Data</h4>
-          <p>
-            Create a DataFrame with the following data:
+          <br>
+
+            <h4>3. Indexing and Selecting Data</h4>
+            <p>
+            Create a DataFrame with the following code:
             <br><br>
-            | Name   | Age | City         |
-            |--------|-----|--------------|
-            | Alice  | 28  | New York     |
-            | Bob    | 22  | Los Angeles  |
-            | Charlie| 35  | Chicago      |
-            | David  | 30  | New York     |
-            <br><br>
+            <pre class="code-block">import pandas as pd
+
+data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+        'Age': [28, 22, 35, 30],
+        'City': ['New York', 'Los Angeles', 'Chicago', 'New York']}
+df = pd.DataFrame(data)
+            </pre>
             Perform the following tasks:
             <ol>
-              <li>Select the "City" column.</li>
-              <li>Select the row where the "Name" is "Charlie".</li>
-              <li>Select the row where the index is 1.</li>
+                <li>Select the "City" column.</li>
+                <li>Select the row where the "Name" is "Charlie".</li>
+                <li>Select the row where the index is 1.</li>
             </ol>
-          </p>
-          <details>
+            </p>
+            <details>
             <summary>Solution</summary>
             <div>
-              <pre class="code-block">
-        import pandas as pd
-        
-        data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
-                'Age': [28, 22, 35, 30],
-                'City': ['New York', 'Los Angeles', 'Chicago', 'New York']}
-        df = pd.DataFrame(data)
-        
-        # 1. Select the "City" column
-        city_column = df['City']
-        
-        # 2. Select the row where the "Name" is "Charlie"
-        charlie_row = df[df['Name'] == 'Charlie']
-        
-        # 3. Select the row where the index is 1
-        row_index_1 = df.loc[1]
-        
-        print(city_column)
-        print(charlie_row)
-        print(row_index_1)</pre>
+                <pre class="code-block">import pandas as pd
+
+data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+        'Age': [28, 22, 35, 30],
+        'City': ['New York', 'Los Angeles', 'Chicago', 'New York']}
+df = pd.DataFrame(data)
+
+# 1. Select the "City" column
+city_column = df['City']
+
+# 2. Select the row where the "Name" is "Charlie"
+charlie_row = df[df['Name'] == 'Charlie']
+
+# 3. Select the row where the index is 1
+row_index_1 = df.iloc[1]
+
+print(city_column)
+print(charlie_row)
+print(row_index_1)
+                </pre>
             </div>
-          </details>
-        
-          <h4>2. Boolean Indexing</h4>
-          <p>
-            Using the following DataFrame:
-            <br><br>
-            | Product | Price | Quantity |
-            |---------|-------|----------|
-            | A       | 10    | 5        |
-            | B       | 15    | 0        |
-            | C       | 20    | 3        |
-            | D       | 5     | 8        |
-            <br><br>
-            Filter the DataFrame to include only the rows where the "Price" is greater than 10 and the "Quantity" is greater than 2.
-          </p>
-          <details>
-            <summary>Solution</summary>
-            <div>
-              <pre class="code-block">
-        import pandas as pd
-        
-        data = {'Product': ['A', 'B', 'C', 'D'],
-                'Price': [10, 15, 20, 5],
-                'Quantity': [5, 0, 3, 8]}
-        df = pd.DataFrame(data)
-        
-        # Filter the DataFrame
-        filtered_df = df[(df['Price'] > 10) & (df['Quantity'] > 2)]
-        
-        print(filtered_df)</pre>
-            </div>
-          </details>
-        
-          <h4>3. Data Cleaning</h4>
-          <p>
-            Create a DataFrame with some missing values and perform the following tasks:
-            <br><br>
-            | ID | Name   | Age  | Salary |
-            |----|--------|------|--------|
-            | 1  | Alice  | 25   | 50000  |
-            | 2  | Bob    | NaN  | 55000  |
-            | 3  | Charlie| 30   | NaN    |
-            | 4  | David  | 28   | 60000  |
-            | 5  | Eve    | NaN  | NaN    |
-            <br><br>
-            1. Fill missing values in the "Age" column with the mean age.
-            2. Drop rows where "Salary" is missing.
-            3. Remove duplicate rows if any.
-          </p>
-          <details>
-            <summary>Solution</summary>
-            <div>
-              <pre class="code-block">
-        import pandas as pd
-        import numpy as np
-        
-        data = {'ID': [1, 2, 3, 4, 5],
-                'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
-                'Age': [25, np.nan, 30, 28, np.nan],
-                'Salary': [50000, 55000, np.nan, 60000, np.nan]}
-        df = pd.DataFrame(data)
-        
-        # 1. Fill missing values in the "Age" column with the mean age
-        mean_age = df['Age'].mean()
-        df['Age'] = df['Age'].fillna(mean_age)
-        
-        # 2. Drop rows where "Salary" is missing
-        df_dropped_salary = df.dropna(subset=['Salary'])
-        
-        # 3. Remove duplicate rows
-        df_dedup = df.drop_duplicates()
-        
-        print(df)
-        print(df_dropped_salary)
-        print(df_dedup)</pre>
-            </div>
-          </details>
+            </details>
+            <br>
+
+            <h4>4. Boolean Indexing</h4>
+            <p>
+              Using the following code to create a DataFrame:
+              <br><br>
+              <pre class="code-block">import pandas as pd
+
+data = {'Product': ['A', 'B', 'C', 'D'],
+        'Price': [10, 15, 20, 5],
+        'Quantity': [5, 0, 3, 8]}
+df = pd.DataFrame(data)
+              </pre>
+              <ol>
+                <li>Filter the DataFrame to include only the rows where the "Price" is greater than 10 and the "Quantity" is greater than 2.</li>
+                <li>Filter the DataFrame to include only the rows where the "Price" is even and the "Quantity" is odd.</li>
+                <li>Filter the DataFrame to include only the rows where the "Price" is greater than the "Quantity."</li>
+              </ol>
+            </p>
+            <details>
+              <summary>Solution</summary>
+              <div>
+                <pre class="code-block">import pandas as pd
+
+data = {'Product': ['A', 'B', 'C', 'D'],
+        'Price': [10, 15, 20, 5],
+        'Quantity': [5, 0, 3, 8]}
+df = pd.DataFrame(data)
+
+# 1. Filter the DataFrame to include only the rows where the "Price" is greater than 10 and the "Quantity" is greater than 2
+filtered_df_1 = df[(df['Price'] > 10) & (df['Quantity'] > 2)]
+print('Filter 1:\n', filtered_df_1)
+
+# 2. Filter the DataFrame to include only the rows where the "Price" is even and the "Quantity" is odd
+filtered_df_2 = df[(df['Price'] % 2 == 0) & (df['Quantity'] % 2 != 0)]
+print('Filter 2:\n', filtered_df_2)
+
+# 3. Filter the DataFrame to include only the rows where the "Price" is greater than the "Quantity"
+filtered_df_3 = df[df['Price'] > df['Quantity']]
+print('Filter 3:\n', filtered_df_3)
+                </pre>
+              </div>
+            </details>
+            
+<br>
+
+<h4>5. Data Cleaning</h4>
+<p>
+  Create a DataFrame with some missing values using the following code:
+  <br><br>
+  <pre class="code-block">
+import pandas as pd
+import numpy as np
+
+data = {'ID': [1, 2, 3, 4, 5],
+        'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
+        'Age': [25, np.nan, 30, 28, np.nan],
+        'Salary': [50000, 55000, np.nan, 60000, np.nan]}
+df = pd.DataFrame(data)
+  </pre>
+  Perform the following tasks:
+  <ol>
+    <li>Fill missing values in the "Age" column with the mean age.</li>
+    <li>Drop rows where "Salary" is missing. (Hint: Refer to Documentation)</li>
+    <li>Remove duplicate rows if any.</li>
+  </ol>
+</p>
+<details>
+  <summary>Solution</summary>
+  <div>
+    <pre class="code-block">
+import pandas as pd
+import numpy as np
+
+data = {'ID': [1, 2, 3, 4, 5],
+        'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
+        'Age': [25, np.nan, 30, 28, np.nan],
+        'Salary': [50000, 55000, np.nan, 60000, np.nan]}
+df = pd.DataFrame(data)
+
+# 1. Fill missing values in the "Age" column with the mean age
+mean_age = df['Age'].mean()
+df['Age'] = df['Age'].fillna(mean_age)
+
+# 2. Drop rows where "Salary" is missing
+df_dropped_salary = df.dropna(subset=['Salary'])
+
+# 3. Remove duplicate rows
+df_dedup = df.drop_duplicates()
+
+print(df)
+print(df_dropped_salary)
+print(df_dedup)
+    </pre>
+  </div>
+</details>
+<br>
+
+
+<h4>6. Boolean Indexing with String Conditions</h4>
+<p>
+  Using the following code to create a DataFrame:
+  <br><br>
+  <pre class="code-block">
+import pandas as pd
+
+data = {'Product': ['Laptop', 'Tablet', 'Phone', 'Monitor', 'Projector'],
+        'Category': ['Electronics', 'Electronics', 'Electronics', 'Electronics', 'Electronics'],
+        'Price': [1200, 300, 600, 200, 1500],
+        'InStock': [True, False, True, True, False]}
+df = pd.DataFrame(data)
+  </pre>
+  <ol>
+    <li>Filter the DataFrame to include only the rows where the "Product" contains the letter 'o' (case-insensitive) and "InStock" is True.</li>
+    <li>Filter the DataFrame to include only the rows where the "Product" starts with 'P' and ends with 'r', and the "Price" is greater than 500.</li>
+    <li>Filter the DataFrame to include only the rows where the "Product" contains either 'e' or 't' (case-insensitive) and the "Price" is less than 1000.</li>
+  </ol>
+</p>
+<details>
+  <summary>Solution</summary>
+  <div>
+    <pre class="code-block">
+import pandas as pd
+
+data = {'Product': ['Laptop', 'Tablet', 'Phone', 'Monitor', 'Projector'],
+        'Category': ['Electronics', 'Electronics', 'Electronics', 'Electronics', 'Electronics'],
+        'Price': [1200, 300, 600, 200, 1500],
+        'InStock': [True, False, True, True, False]}
+df = pd.DataFrame(data)
+
+# 1. Filter the DataFrame to include only the rows where the "Product" contains the letter 'o' (case-insensitive) and "InStock" is True
+filtered_df_1 = df[df['Product'].str.contains('o', case=False) & df['InStock']]
+print('Filter 1:\n', filtered_df_1)
+
+# 2. Filter the DataFrame to include only the rows where the "Product" starts with 'P' and ends with 'r', and the "Price" is greater than 500
+filtered_df_2 = df[df['Product'].str.startswith('P') & df['Product'].str.endswith('r') & (df['Price'] > 500)]
+print('Filter 2:\n', filtered_df_2)
+
+# 3. Filter the DataFrame to include only the rows where the "Product" contains either 'e' or 't' (case-insensitive) and the "Price" is less than 1000
+filtered_df_3 = df[df['Product'].str.contains('e|t', case=False) & (df['Price'] < 1000)]
+print('Filter 3:\n', filtered_df_3)
+    </pre>
+  </div>
+</details>
+
+<br>
+
+<h4>7. Data Cleaning with Outliers</h4>
+<p>
+  Create a DataFrame with some outliers and perform the following tasks:
+  <br><br>
+  <pre class="code-block">
+import pandas as pd
+
+data = {'ID': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        'Value': [10, 200, 15, 300, 20, 25, 40, 600, 30, 35]}
+df = pd.DataFrame(data)
+  </pre>
+  Perform the following tasks:
+  <ol>
+    <li>Identify and remove outliers in the "Value" column using the IQR method where outliers are defined as values that are more than 2 times the IQR above the third quartile or below the first quartile.</li>
+    <li>Identify and remove outliers using a z-score method manually. An observation is considered an outlier if its z-score is greater than 2 or less than -2. Note: Use pandas to compute the mean and standard deviation.</li>
+    <li>Compare the results from both methods and display the cleaned DataFrames and IQR values.</li>
+  </ol>
+</p>
+<details>
+  <summary>Solution</summary>
+  <div>
+    <pre class="code-block">
+import pandas as pd
+
+data = {'ID': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        'Value': [10, 200, 15, 300, 20, 25, 40, 600, 30, 35]}
+df = pd.DataFrame(data)
+
+# 1. Calculate the IQR and remove outliers
+Q1 = df['Value'].quantile(0.25)
+Q3 = df['Value'].quantile(0.75)
+IQR = Q3 - Q1
+lower_bound = Q1 - 2 * IQR
+upper_bound = Q3 + 2 * IQR
+df_iqr_cleaned = df[(df['Value'] >= lower_bound) & (df['Value'] <= upper_bound)]
+
+# 2. Calculate mean and standard deviation for Z-score method
+mean = df['Value'].mean()
+std = df['Value'].std()
+df['Z-score'] = (df['Value'] - mean) / std
+
+# Identify and remove outliers using Z-score method
+df_zscore_cleaned = df[(df['Z-score'] <= 2) & (df['Z-score'] >= -2)]
+
+# Drop the Z-score column for the final cleaned DataFrame
+df_zscore_cleaned = df_zscore_cleaned.drop(columns='Z-score')
+
+print(f'IQR: {IQR}')
+print('Cleaned DataFrame (IQR method):\n', df_iqr_cleaned)
+print('Cleaned DataFrame (Z-score method):\n', df_zscore_cleaned)
+    </pre>
+  </div>
+</details>
+
+<br>
+
+<h4>8. Data Cleaning with Date and Time</h4>
+<p>
+  Create a DataFrame with some date and time data and perform the following tasks:
+  <br><br>
+  <pre class="code-block">
+import pandas as pd
+
+data = {'Event': ['Event1', 'Event2', 'Event3', 'Event4'],
+        'Date': ['2024-01-01', '2024-02-01', '2024-01-15', '2024-02-15'],
+        'Time': ['08:00', '09:00', '10:00', '11:00']}
+df = pd.DataFrame(data)
+df['Date'] = pd.to_datetime(df['Date'])
+df['Time'] = pd.to_datetime(df['Time'], format='%H:%M').dt.time
+  </pre>
+  Perform the following tasks:
+  <ol>
+    <li>Filter the DataFrame to include only events that occur in January 2024.</li>
+    <li>Compute and display the duration between the earliest and latest events in the DataFrame in terms of days.</li>
+  </ol>
+</p>
+<details>
+  <summary>Solution</summary>
+  <div>
+    <pre class="code-block">
+import pandas as pd
+
+data = {'Event': ['Event1', 'Event2', 'Event3', 'Event4'],
+        'Date': ['2024-01-01', '2024-02-01', '2024-01-15', '2024-02-15'],
+        'Time': ['08:00', '09:00', '10:00', '11:00']}
+df = pd.DataFrame(data)
+df['Date'] = pd.to_datetime(df['Date'])
+df['Time'] = pd.to_datetime(df['Time'], format='%H:%M').dt.time
+
+# 1. Filter for January 2024
+df_january = df[df['Date'].dt.month == 1]
+
+# 2. Compute the duration between the earliest and latest events
+df['DateTime'] = pd.to_datetime(df['Date'].astype(str) + ' ' + df['Time'].astype(str))
+earliest_event = df['DateTime'].min()
+latest_event = df['DateTime'].max()
+duration_days = (latest_event - earliest_event).days
+
+print(df_january)
+print(f'Duration between earliest and latest events: {duration_days} days')
+    </pre>
+  </div>
+</details>
+
+<br>
         </section>
         
 
