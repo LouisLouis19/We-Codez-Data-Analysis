@@ -1,213 +1,486 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Introduction to Pandas</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <header>
-        <h1>Introduction to Pandas</h1>
+      <h1>Introduction to Pandas</h1>
     </header>
 
     <div class="container">
-        <aside class="sidebar">
-            <nav>
-                <ul>
-                    <li><a href="index.html" class="active">Introduction to Pandas</a></li>
-                    <li><a href="numpy_tutorial.html">Introduction to NumPy</a></li>
-                </ul>
-            </nav>
-        </aside>
-        <main>
-            <section class="overview">
-                <h2>Introduction to Pandas</h2>
-                <p>Pandas is a powerful library for data analysis and manipulation in Python. It provides data structures like Series and DataFrame, which are essential for handling and analyzing data.</p>
+      <aside class="sidebar">
+        <nav>
+          <ul>
+            <li>
+              <a href="index.html" class="active">Introduction to Pandas</a>
+            </li>
+            <li><a href="numpy_tutorial.html">Introduction to NumPy</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <main>
+        <section class="overview">
+          <h2>Introduction to Pandas</h2>
+          <p>
+            Pandas is a powerful library for data analysis and manipulation in
+            Python. It provides data structures like Series and DataFrame, which
+            are essential for handling and analyzing data.
+          </p>
 
-                <h3>What is Pandas?</h3>
-                <p>Pandas is a data analysis and manipulation library. It is widely used for cleaning, analyzing, and visualizing data. It provides two primary data structures: Series and DataFrame, which allow for efficient data handling.</p>
+          <h3>What is Pandas?</h3>
+          <p>
+            Pandas is a data analysis and manipulation library. It is widely
+            used for cleaning, analyzing, and visualizing data. It provides two
+            primary data structures: Series and DataFrame, which allow for
+            efficient data handling.
+          </p>
 
-                <h3>Installation</h3>
-                <p>To install Pandas, use pip:</p>
-                <pre class="code-block">pip install pandas</pre>
-                <p>To check the version of Pandas installed:</p>
-                <pre class="code-block">import pandas as pd
-print(pd.__version__)</pre>
-            </section>
+          <h3>Installation</h3>
+          <p>To install Pandas, use pip:</p>
+          <pre class="code-block">pip install pandas</pre>
+          <p>To check the version of Pandas installed:</p>
+          <pre class="code-block">
+import pandas as pd
+print(pd.__version__)</pre
+          >
+        </section>
 
-            <section class="getting-started">
-                <h2>Getting Started</h2>
+        <section class="getting-started">
+          <h2>Getting Started</h2>
 
-                <h3>Importing Pandas</h3>
-                <p>To use Pandas, you need to import it into your Python script:</p>
-                <pre class="code-block">import pandas as pd</pre>
+          <h3>Importing Pandas</h3>
+          <p>To use Pandas, you need to import it into your Python script:</p>
+          <pre class="code-block">import pandas as pd</pre>
 
-                <h3>Pandas Data Structures</h3>
-                <p>Pandas provides two primary data structures:</p>
-                <ul>
-                    <li><strong>Series</strong>: A one-dimensional array-like object.</li>
-                    <li><strong>DataFrame</strong>: A two-dimensional, size-mutable, and potentially heterogeneous tabular data structure.</li>
-                </ul>
-            </section>
+          <h3>Pandas Data Structures</h3>
+          <p>Pandas provides two primary data structures:</p>
+          <ul>
+            <li>
+              <strong>Series</strong>: A one-dimensional array-like object.
+            </li>
+            <li>
+              <strong>DataFrame</strong>: A two-dimensional, size-mutable, and
+              potentially heterogeneous tabular data structure.
+            </li>
+          </ul>
+        </section>
 
-            <section class="creating-structures">
-                <h2>Creating DataFrames and Series</h2>
+        <section class="creating-structures">
+          <h2>Creating DataFrames and Series</h2>
 
-                <h3>Creating a Series</h3>
-                <p>Series can be created from lists, dictionaries, or scalar values:</p>
-                <pre class="code-block">import pandas as pd
+          <h3>Creating a Series</h3>
+          <p>
+            Series can be created from lists, dictionaries, or scalar values:
+          </p>
+          <pre class="code-block">
+import pandas as pd
 
 # From a list
 series_list = pd.Series([1, 2, 3, 4])
 
-# From a dictionary
-series_dict = pd.Series({'a': 1, 'b': 2})
+# With custom index
+series_custom = pd.Series([1, 2, 3, 4], index=['a', 'b', 'c', 'd'])</pre
+          >
 
-# From a scalar value
-series_scalar = pd.Series(5, index=['a', 'b', 'c'])</pre>
-
-                <h3>Creating a DataFrame</h3>
-                <p>DataFrames can be created from dictionaries, lists of lists, or by reading from files:</p>
-                <pre class="code-block">import pandas as pd
+          <h3>Creating a DataFrame</h3>
+          <p>
+            DataFrames can be created from dictionaries, lists of lists, or by
+            reading from files:
+          </p>
+          <pre class="code-block">
+import pandas as pd
 
 # From a dictionary
 data_dict = {'Column1': [1, 2], 'Column2': [3, 4]}
 df_dict = pd.DataFrame(data_dict)
+df_dict_index = pd.DataFrame(data_dict, index = ["row1", "row2"])
 
 # From a list of lists
 data_list = [[1, 2], [3, 4]]
-df_list = pd.DataFrame(data_list, columns=['Column1', 'Column2'])
+df_list = pd.DataFrame(data_list, index=['row1', 'row2'], columns=['Column1', 'Column2'])</pre
+          >
+        </section>
 
-# Reading from a CSV file
-df_csv = pd.read_csv('file.csv')</pre>
-            </section>
+        <section class="exploring-dataframes">
+          <h2>Exploring DataFrames</h2>
 
-            <section class="exploring-dataframes">
-                <h2>Exploring DataFrames</h2>
-
-                <h3>Basic DataFrame Operations</h3>
-                <p>Perform basic operations to view and understand your data:</p>
-                <pre class="code-block">import pandas as pd
+          <h3>Basic DataFrame Operations</h3>
+          <p>Perform basic operations to view and understand your data:</p>
+          <pre class="code-block">
+import pandas as pd
 
 df = pd.DataFrame({'A': [1, 2], 'B': [3, 4]})
-print(df.head())  # View the first few rows
-print(df.tail())  # View the last few rows
-print(df.info())  # Get basic info about the DataFrame</pre>
+print(df.head())  # View the first 5 rows
+print(df.tail())  # View the last 5 rows
+print(df.info())  # Get basic info about the DataFrame</pre
+          >
 
-                <h3>Descriptive Statistics</h3>
-                <p>Use descriptive statistics to summarize the data:</p>
-                <pre class="code-block">import pandas as pd
+          <h3>Descriptive Statistics</h3>
+          <p>Use descriptive statistics to summarize the data:</p>
+          <pre class="code-block">
+import pandas as pd
 
 df = pd.DataFrame({'A': [1, 2, 3, 4, 5]})
-print(df.describe())  # Summary statistics for numerical columns</pre>
-            </section>
+print(df.describe())  # Summary statistics for numerical columns</pre
+          >
+        </section>
 
-            <section class="indexing-selecting">
-                <h2>Indexing and Selecting Data</h2>
+        <section class="indexing-selecting">
+          <h2>Indexing and Selecting Data</h2>
 
-                <h3>Selecting Columns and Rows</h3>
-                <p>Select columns and rows using column names, `.loc[]`, and `.iloc[]`:</p>
-                <pre class="code-block">import pandas as pd
+          <h3>Selecting Columns and Rows</h3>
+          <p>
+            Select columns and rows using column names, `.loc[]`, and `.iloc[]`:
+          </p>
+          <pre class="code-block">
+import pandas as pd
 
 df = pd.DataFrame({'A': [1, 2], 'B': [3, 4]})
 print(df['A'])            # Select a column
 print(df.loc[0])         # Select a row by label
-print(df.iloc[0])        # Select a row by position</pre>
+print(df.iloc[0])        # Select a row by position</pre
+          >
 
-                <h3>Boolean Indexing</h3>
-                <p>Filter rows based on conditions:</p>
-                <pre class="code-block">import pandas as pd
+          <h3>Boolean Indexing</h3>
+          <p>Filter rows based on conditions:</p>
+          <pre class="code-block">
+import pandas as pd
 
 df = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6]})
 filtered_df = df[df['A'] > 1]
-print(filtered_df)</pre>
-            </section>
+print(filtered_df)</pre
+          >
+        </section>
 
-            <section class="practice-exercises">
-                <h2>Practice Exercises</h2>
+        <section class="data-cleaning">
+          <h2>Data Cleaning</h2>
+          <p>
+            Data cleaning means fixing bad data in your data set. Bad data can
+            include:
+          </p>
+          <ul>
+            <li>
+              <strong>Empty Cells:</strong> Missing values that need to be
+              handled.
+            </li>
+            <li>
+              <strong>Data in Wrong Format:</strong> Values that are not in the
+              expected format (e.g., dates stored as strings).
+            </li>
+            <li>
+              <strong>Wrong Data:</strong> Incorrect or inconsistent values that
+              need correction.
+            </li>
+            <li>
+              <strong>Duplicates:</strong> Duplicate rows or entries that should
+              be removed.
+            </li>
+          </ul>
 
-                <h3>Simple Exercises</h3>
-                <h4>1. Create a DataFrame from a Dictionary</h4>
-                <p>Create a DataFrame from a dictionary where the keys are column names and the values are lists of data.</p>
-                <details>
-                    <summary>Solution</summary>
-                    <div>
-                        <pre class="code-block">import pandas as pd
-
-data = {'Name': ['Alice', 'Bob', 'Charlie'], 'Age': [24, 27, 22]}
-df = pd.DataFrame(data)
-print(df)</pre>
-                    </div>
-                </details>
-
-                <h4>2. Handle Missing Data</h4>
-                <p>Create a DataFrame with some missing values. Fill missing values with a specified value or drop rows with missing values.</p>
-                <details>
-                    <summary>Solution</summary>
-                    <div>
-                        <pre class="code-block">import pandas as pd
+          <h3>Handling Missing Values</h3>
+<p>
+  To handle missing values, you can either fill them with a specified value or drop the rows with missing values. You can also fill missing values with the mean, median, or mode of the column:
+</p>
+<pre class="code-block">
+import pandas as pd
 import numpy as np
 
-data = {'A': [1, np.nan, 3], 'B': [4, 5, np.nan]}
+# Create a DataFrame with missing values
+data = {'A': [1, np.nan, 3], 'B': [4, 5, np.nan], 'C': [np.nan, 2, 3]}
 df = pd.DataFrame(data)
-df_filled = df.fillna(0)  # Fill missing values with 0
+
+# Fill missing values with a specific value
+df_filled_value = df.fillna(0)  # Fill missing values with 0
+
+# Drop rows with missing values
 df_dropped = df.dropna()  # Drop rows with missing values
-print(df_filled)
-print(df_dropped)</pre>
-                    </div>
-                </details>
 
-                <h3>Advanced Exercises</h3>
-                <h4>1. Apply Functions to DataFrame</h4>
-                <p>Use the `.apply()` method to apply a function to each element in a DataFrame.</p>
-                <details>
-                    <summary>Solution</summary>
-                    <div>
-                        <pre class="code-block">import pandas as pd
+# Fill missing values with the mean of the column
+mean_values = df.mean()
+df_filled_mean = df.fillna(mean_values)
 
-def square(x):
-    return x ** 2
+# Fill missing values with the median of the column
+median_values = df.median()
+df_filled_median = df.fillna(median_values)
 
-df = pd.DataFrame({'A': [1, 2, 3]})
-df_squared = df.applymap(square)
-print(df_squared)</pre>
-                    </div>
-                </details>
+# Fill missing values with the mode of the column
+mode_values = df.mode().iloc[0]
+df_filled_mode = df.fillna(mode_values)
 
-                <h4>2. Group Data and Aggregate</h4>
-                <p>Create a DataFrame, group data by a column, and calculate the mean for each group.</p>
-                <details>
-                    <summary>Solution</summary>
-                    <div>
-                        <pre class="code-block">import pandas as pd
+print("Filled with 0:")
+print(df_filled_value)
+print("\nDropped rows with missing values:")
+print(df_dropped)
+print("\nFilled with mean values:")
+print(df_filled_mean)
+print("\nFilled with median values:")
+print(df_filled_median)
+print("\nFilled with mode values:")
+print(df_filled_mode)
+</pre>
 
-data = {'Category': ['A', 'B', 'A', 'B'], 'Value': [10, 20, 30, 40]}
+
+<h3>Correcting Data Types</h3>
+<p>Data of wrong format can make it difficult, or even impossible, to analyze data. To convert columns to the correct data type, and handle any resulting issues:</p>
+<pre class="code-block">
+import pandas as pd
+import numpy as np
+
+# Create a DataFrame with incorrect data types
+data = {'Date': ['2024-01-01', '2024-01-02', 'invalid-date'],
+        'Value': ['100', '200', 'not-a-number']}
 df = pd.DataFrame(data)
-grouped_df = df.groupby('Category').mean()
-print(grouped_df)</pre>
-                    </div>
-                </details>
 
-                <h4>3. Merge DataFrames</h4>
-                <p>Create two DataFrames and merge them based on a common column.</p>
-                <details>
-                    <summary>Solution</summary>
-                    <div>
-                        <pre class="code-block">import pandas as pd
+# Convert 'Date' column to datetime
+df['Date'] = pd.to_datetime(df['Date'], errors='coerce')  # 'invalid-date' becomes NaT
 
-df1 = pd.DataFrame({'ID': [1, 2], 'Name': ['Alice', 'Bob']})
-df2 = pd.DataFrame({'ID': [1, 2], 'Score': [85, 90]})
-merged_df = pd.merge(df1, df2, on='ID')
-print(merged_df)</pre>
-                    </div>
-                </details>
-            </section>
+# Convert 'Value' column to numeric
+df['Value'] = pd.to_numeric(df['Value'], errors='coerce')  # 'not-a-number' becomes NaN
 
-            <footer>
-                <p>&copy; 2024 We Codez</p>
-            </footer>
-        </main>
+# Remove rows with NaT or NaN values
+df_cleaned = df.dropna()
+
+print("Original DataFrame:")
+print(df)
+print("\nCleaned DataFrame (after converting and removing rows with NaT or NaN):")
+print(df_cleaned)
+</pre>
+
+<h3>Fixing Wrong Data</h3>
+<p>Data can sometimes contain incorrect or inconsistent values that need to be corrected. You can fix wrong data using boolean indexing to identify and correct these issues:</p>
+<pre class="code-block">
+import pandas as pd
+import numpy as np
+
+# Create a DataFrame with some wrong data
+data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+        'Age': [24, -1, 30, 150],  # -1 and 150 are incorrect ages
+        'Salary': [50000, 60000, -7000, 80000]}  # -7000 is an incorrect salary
+df = pd.DataFrame(data)
+
+# Identify and fix incorrect data
+# For 'Age': Assuming valid ages should be between 0 and 120
+df.loc[df['Age'] < 0, 'Age'] = np.nan  # Replace negative ages with NaN
+df.loc[df['Age'] > 120, 'Age'] = np.nan  # Replace ages greater than 120 with NaN
+
+# For 'Salary': Assuming valid salaries should be non-negative
+df.loc[df['Salary'] < 0, 'Salary'] = np.nan  # Replace negative salaries with NaN
+
+# Fill NaN values with a specified value (e.g., median or mean)
+df['Age'] = df['Age'].fillna(df['Age'].median())
+df['Salary'] = df['Salary'].fillna(df['Salary'].median())
+
+print("Original DataFrame:")
+print(df)
+print("\nDataFrame after fixing wrong data:")
+print(df)
+</pre>
+
+
+
+<h3>Removing Duplicates</h3>
+<p>Removing duplicate rows from a DataFrame helps ensure the data is unique and accurate. You can first check for duplicated rows using the `.duplicated()` method, and then remove them using the `.drop_duplicates()` method:</p>
+
+<pre class="code-block">
+import pandas as pd
+
+# Create a DataFrame with some duplicate rows
+data = {'A': [1, 2, 2, 1], 'B': [3, 4, 4, 3]}
+df = pd.DataFrame(data)
+
+# Check for duplicated rows
+duplicates = df.duplicated()
+print("Duplicated rows:\n", duplicates)
+
+# Remove duplicate rows
+df_unique = df.drop_duplicates()
+print("\nDataFrame after removing duplicates:\n", df_unique)
+
+# Remove duplicates based on specific columns
+df_unique_cols = df.drop_duplicates(subset=['A'])
+print("\nDataFrame after removing duplicates based on column 'A':\n", df_unique_cols)
+</pre>
+
+<p>
+  The `.duplicated()` method returns a Boolean Series indicating whether each row is a duplicate of a previous row. You can use this method to identify and review duplicates before deciding to remove them.
+</p>
+<p>
+  The `.drop_duplicates()` method removes duplicate rows, and you can specify columns with the `subset` parameter to remove duplicates based on specific columns only.
+</p>
+
+        </section>
+
+        <section class="practice-exercises">
+          <h2>Practice Exercises</h2>
+        
+          <h3>Simple Exercises</h3>
+          <h4>1. Create a DataFrame from a Dictionary</h4>
+          <p>
+            Create a DataFrame from a dictionary where the keys are column names and the values are lists of data.
+          </p>
+          <details>
+            <summary>Solution</summary>
+            <div>
+              <pre class="code-block">
+        import pandas as pd
+        
+        data = {'Name': ['Alice', 'Bob', 'Charlie'], 'Age': [24, 27, 22]}
+        df = pd.DataFrame(data)
+        print(df)</pre>
+            </div>
+          </details>
+        
+          <h4>2. Handle Missing Data</h4>
+          <p>
+            Create a DataFrame with some missing values. Fill missing values with a specified value or drop rows with missing values.
+          </p>
+          <details>
+            <summary>Solution</summary>
+            <div>
+              <pre class="code-block">
+        import pandas as pd
+        import numpy as np
+        
+        data = {'A': [1, np.nan, 3], 'B': [4, 5, np.nan]}
+        df = pd.DataFrame(data)
+        df_filled = df.fillna(0)  # Fill missing values with 0
+        df_dropped = df.dropna()  # Drop rows with missing values
+        print(df_filled)
+        print(df_dropped)</pre>
+            </div>
+          </details>
+        
+          <h3>Advanced Exercises</h3>
+          <h4>1. Indexing and Selecting Data</h4>
+          <p>
+            Create a DataFrame with the following data:
+            <br><br>
+            | Name   | Age | City         |
+            |--------|-----|--------------|
+            | Alice  | 28  | New York     |
+            | Bob    | 22  | Los Angeles  |
+            | Charlie| 35  | Chicago      |
+            | David  | 30  | New York     |
+            <br><br>
+            Perform the following tasks:
+            <ol>
+              <li>Select the "City" column.</li>
+              <li>Select the row where the "Name" is "Charlie".</li>
+              <li>Select the row where the index is 1.</li>
+            </ol>
+          </p>
+          <details>
+            <summary>Solution</summary>
+            <div>
+              <pre class="code-block">
+        import pandas as pd
+        
+        data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+                'Age': [28, 22, 35, 30],
+                'City': ['New York', 'Los Angeles', 'Chicago', 'New York']}
+        df = pd.DataFrame(data)
+        
+        # 1. Select the "City" column
+        city_column = df['City']
+        
+        # 2. Select the row where the "Name" is "Charlie"
+        charlie_row = df[df['Name'] == 'Charlie']
+        
+        # 3. Select the row where the index is 1
+        row_index_1 = df.loc[1]
+        
+        print(city_column)
+        print(charlie_row)
+        print(row_index_1)</pre>
+            </div>
+          </details>
+        
+          <h4>2. Boolean Indexing</h4>
+          <p>
+            Using the following DataFrame:
+            <br><br>
+            | Product | Price | Quantity |
+            |---------|-------|----------|
+            | A       | 10    | 5        |
+            | B       | 15    | 0        |
+            | C       | 20    | 3        |
+            | D       | 5     | 8        |
+            <br><br>
+            Filter the DataFrame to include only the rows where the "Price" is greater than 10 and the "Quantity" is greater than 2.
+          </p>
+          <details>
+            <summary>Solution</summary>
+            <div>
+              <pre class="code-block">
+        import pandas as pd
+        
+        data = {'Product': ['A', 'B', 'C', 'D'],
+                'Price': [10, 15, 20, 5],
+                'Quantity': [5, 0, 3, 8]}
+        df = pd.DataFrame(data)
+        
+        # Filter the DataFrame
+        filtered_df = df[(df['Price'] > 10) & (df['Quantity'] > 2)]
+        
+        print(filtered_df)</pre>
+            </div>
+          </details>
+        
+          <h4>3. Data Cleaning</h4>
+          <p>
+            Create a DataFrame with some missing values and perform the following tasks:
+            <br><br>
+            | ID | Name   | Age  | Salary |
+            |----|--------|------|--------|
+            | 1  | Alice  | 25   | 50000  |
+            | 2  | Bob    | NaN  | 55000  |
+            | 3  | Charlie| 30   | NaN    |
+            | 4  | David  | 28   | 60000  |
+            | 5  | Eve    | NaN  | NaN    |
+            <br><br>
+            1. Fill missing values in the "Age" column with the mean age.
+            2. Drop rows where "Salary" is missing.
+            3. Remove duplicate rows if any.
+          </p>
+          <details>
+            <summary>Solution</summary>
+            <div>
+              <pre class="code-block">
+        import pandas as pd
+        import numpy as np
+        
+        data = {'ID': [1, 2, 3, 4, 5],
+                'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
+                'Age': [25, np.nan, 30, 28, np.nan],
+                'Salary': [50000, 55000, np.nan, 60000, np.nan]}
+        df = pd.DataFrame(data)
+        
+        # 1. Fill missing values in the "Age" column with the mean age
+        mean_age = df['Age'].mean()
+        df['Age'] = df['Age'].fillna(mean_age)
+        
+        # 2. Drop rows where "Salary" is missing
+        df_dropped_salary = df.dropna(subset=['Salary'])
+        
+        # 3. Remove duplicate rows
+        df_dedup = df.drop_duplicates()
+        
+        print(df)
+        print(df_dropped_salary)
+        print(df_dedup)</pre>
+            </div>
+          </details>
+        </section>
+        
+
+        <footer>
+          <p>&copy; 2024 We Codez</p>
+        </footer>
+      </main>
     </div>
-</body>
+  </body>
 </html>
