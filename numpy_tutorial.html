@@ -9,7 +9,6 @@
 <body>
     <header>
         <h1>Introduction to NumPy</h1>
-        <h2>Getting Started with NumPy for Scientific Computing</h2>
     </header>
 
     <div class="container">
@@ -24,15 +23,15 @@
         <main>
             <section class="overview">
                 <h2>Overview</h2>
-                <p>This tutorial introduces NumPy, a fundamental package for scientific computing in Python.</p>
+                <p>This tutorial introduces NumPy, a fundamental package for scientific computing in Python. NumPy provides support for large, multi-dimensional arrays and matrices, along with a large collection of mathematical functions to operate on these arrays.</p>
 
                 <h3>What is NumPy?</h3>
-                <p>NumPy is a library in Python that provides support for arrays and matrices, along with a collection of mathematical functions to operate on these arrays. It is essential for scientific computing and data analysis.</p>
+                <p>NumPy, which stands for Numerical Python, is a core library for numerical and scientific computing in Python. It offers support for array operations, linear algebra, statistical operations, and more. NumPy's core data structure is the <code>ndarray</code>, a powerful n-dimensional array object that supports a wide range of mathematical operations.</p>
 
                 <h3>Installation</h3>
                 <p>To install NumPy, use the following pip command:</p>
                 <pre class="code-block">pip install numpy</pre>
-                <p>After installation, you can check the version using:</p>
+                <p>After installation, you can verify the installation and check the version of NumPy using the following code:</p>
                 <pre class="code-block">import numpy as np
 print(np.__version__)</pre>
             </section>
@@ -40,99 +39,112 @@ print(np.__version__)</pre>
             <section class="getting-started">
                 <h2>Getting Started</h2>
                 <h3>Importing NumPy</h3>
-                <p>To use NumPy in your Python script, you need to import it:</p>
+                <p>To use NumPy in your Python scripts, you need to import it. It is a common practice to import NumPy using the alias <code>np</code>:</p>
                 <pre class="code-block">import numpy as np</pre>
+                <p>By importing NumPy as <code>np</code>, you can use <code>np</code> as a prefix to access NumPy functions and classes, making your code cleaner and more concise.</p>
             </section>
 
             <section class="numpy-arrays">
                 <h2>NumPy Arrays</h2>
                 <h3>Creating Arrays</h3>
-                <p>Arrays can be created from lists or tuples:</p>
-                <pre class="code-block">array1 = np.array([1, 2, 3, 4])
-array2 = np.array([[1, 2], [3, 4]])</pre>
+                <p>Arrays are the central feature of NumPy. You can create arrays from Python lists or tuples using <code>np.array()</code>. Additionally, NumPy provides several functions to create arrays:</p>
+                <pre class="code-block"># Creating an array from a list
+array1 = np.array([1, 2, 3, 4])
 
-                <p>You can also use built-in functions:</p>
-                <pre class="code-block">zeros = np.zeros((2, 2))
-ones = np.ones((2, 2))
-arange = np.arange(0, 10, 2)</pre>
+# Creating a 2D array from a list of lists
+array2 = np.array([[1, 2], [3, 4]])
+
+# Creating an array of zeros
+zeros = np.zeros((2, 2))  # Shape: 2x2
+
+# Creating an array of ones
+ones = np.ones((2, 2))    # Shape: 2x2
+
+# Creating an array with a range of values
+arange = np.arange(0, 10, 2)  # [0, 2, 4, 6, 8]
+</pre>
 
                 <h3>Array Attributes</h3>
-                <p>Learn about array attributes:</p>
-                <pre class="code-block">print(array1.shape)  # (4,)
-print(array2.shape)  # (2, 2)
-print(array1.size)   # 4
-print(array2.dtype)  # int64</pre>
+                <p>NumPy arrays have several important attributes that provide information about their structure:</p>
+                <pre class="code-block">print(array1.shape)  # Output: (4,) - 1D array with 4 elements
+print(array2.shape)  # Output: (2, 2) - 2D array with 2 rows and 2 columns
+print(array1.size)   # Output: 4 - Total number of elements in the array
+print(array2.dtype)  # Output: int64 - Data type of the elements in the array
+</pre>
             </section>
 
             <section class="basic-operations">
                 <h2>Basic Array Operations</h2>
                 <h3>Indexing and Slicing</h3>
-                <p>Access elements and subarrays:</p>
-                <pre class="code-block">print(array2[0, 1])      # 2
-print(array2[:, 1])       # [2, 4]</pre>
+                <p>Indexing and slicing allow you to access elements or subarrays within an array:</p>
+                <pre class="code-block">print(array2[0, 1])      # Output: 2 - Element at first row, second column
+print(array2[:, 1])       # Output: [2, 4] - All rows, second column
+</pre>
 
                 <h3>Array Arithmetic</h3>
-                <p>Perform element-wise operations:</p>
+                <p>NumPy allows element-wise arithmetic operations. Operations are performed element-wise on arrays of the same shape:</p>
                 <pre class="code-block">result = array1 + 2
-print(result)  # [3, 4, 5, 6]</pre>
+print(result)  # Output: [3, 4, 5, 6] - Adding 2 to each element of array1
+</pre>
 
                 <h3>Broadcasting</h3>
-                <p>Understand basic broadcasting:</p>
+                <p>Broadcasting allows NumPy to perform arithmetic operations on arrays of different shapes. It works by automatically expanding the dimensions of the smaller array:</p>
                 <pre class="code-block">array3 = np.array([[1], [2], [3]])
 array4 = np.array([1, 2])
-print(array3 + array4)  # Broadcasting example</pre>
+print(array3 + array4)
+# Output:
+# [[2, 3]
+#  [3, 4]
+#  [4, 5]]
+# The smaller array is broadcasted across the larger array
+</pre>
             </section>
 
             <section class="array-manipulation">
                 <h2>Array Manipulation</h2>
                 <h3>Reshaping Arrays</h3>
-                <p>Change the shape of arrays:</p>
+                <p>Reshaping changes the shape of an array without modifying its data. It is useful for transforming data into different dimensions:</p>
                 <pre class="code-block">reshaped = array1.reshape((2, 2))
-print(reshaped)</pre>
+print(reshaped)
+# Output:
+# [[1, 2]
+#  [3, 4]]
+# Reshaped array to 2 rows and 2 columns
+</pre>
 
                 <h3>Flattening Arrays</h3>
-                <p>Convert arrays to 1D:</p>
+                <p>Flattening converts a multi-dimensional array into a one-dimensional array. This is often used for simplifying data:</p>
                 <pre class="code-block">flattened = reshaped.flatten()
-print(flattened)</pre>
+print(flattened)
+# Output: [1, 2, 3, 4] - Flattened to a 1D array
+</pre>
 
                 <h3>Transposing Arrays</h3>
-                <p>Transpose arrays:</p>
+                <p>Transposing swaps the rows and columns of a 2D array, which is useful for many matrix operations:</p>
                 <pre class="code-block">transposed = array2.T
-print(transposed)</pre>
+print(transposed)
+# Output:
+# [[1, 3]
+#  [2, 4]] - Transposed array
+</pre>
             </section>
 
             <section class="statistical-operations">
                 <h2>Statistical Operations</h2>
                 <h3>Descriptive Statistics</h3>
-                <p>Use methods like mean, median, std, and sum:</p>
-                <pre class="code-block">print(np.mean(array1))
-print(np.median(array1))
-print(np.std(array1))
-print(np.sum(array1))</pre>
+                <p>NumPy provides methods to compute common statistical measures for arrays:</p>
+                <pre class="code-block">print(np.mean(array1))    # Output: 2.5 - Mean of the elements
+print(np.median(array1))  # Output: 2.5 - Median of the elements
+print(np.std(array1))     # Output: 1.118033988749895 - Standard deviation of the elements
+print(np.sum(array1))     # Output: 10 - Sum of the elements
+</pre>
 
                 <h3>Aggregation Functions</h3>
-                <p>Find min, max, and argmin:</p>
-                <pre class="code-block">print(np.min(array1))
-print(np.max(array1))
-print(np.argmin(array1))</pre>
-            </section>
-
-            <section class="practice">
-                <h2>Practice Exercises</h2>
-
-                <h3>Simple Exercises</h3>
-                <ul>
-                    <li>Create a NumPy array from a list and perform basic operations.</li>
-                    <li>Reshape an array and flatten it.</li>
-                    <li>Perform element-wise arithmetic operations on arrays.</li>
-                </ul>
-
-                <h3>Advanced Exercises</h3>
-                <ul>
-                    <li>Implement matrix multiplication using NumPy.</li>
-                    <li>Calculate statistical measures on a random array.</li>
-                    <li>Generate a random array and perform broadcasting operations.</li>
-                </ul>
+                <p>Aggregation functions help in finding extreme values and their positions within an array:</p>
+                <pre class="code-block">print(np.min(array1))    # Output: 1 - Minimum value
+print(np.max(array1))    # Output: 4 - Maximum value
+print(np.argmin(array1)) # Output: 0 - Index of the minimum value
+</pre>
             </section>
         </main>
     </div>
