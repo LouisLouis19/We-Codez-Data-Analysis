@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 1 Practice Exercises</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="assignments">
+    <h1>Pandas Practice Exercises</h1>
+    <p>
+      Perform Data Cleaning on CSV Datasets to strengthen your understanding of
+      Week 1 Concepts
+    </p>
+
+    <p>
+      The practice datasets can be found
+      <a
+        href="https://drive.google.com/drive/folders/183gzd8R8df6zkRU7PZzZXvN5K6fz3HDG?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
+        >here</a
+      >.
+    </p>
+
+    <section class="task">
+      <h2>1. Read and Transform CSV</h2>
+      <p>
+        Read the CSV file and transform it into a DataFrame. Use appropriate
+        libraries and functions for this task.
+      </p>
+      <details>
+        <summary>Hint</summary>
+        <p><strong>Example Code:</strong></p>
+        <pre class="code-block">
+import pandas as pd
+df = pd.read_csv('path_to_csv.csv')</pre
+        >
+      </details>
+    </section>
+
+    <section class="task">
+      <h2>2. List Issues with the Data</h2>
+      <p>
+        Identify and list out the issues present in the data. Common issues
+        might include missing values, duplicate rows, or incorrect data types.
+      </p>
+      <details>
+        <summary>Hint</summary>
+        <p><strong>Example Code:</strong></p>
+        <pre class="code-block">
+print(df.isnull().sum())
+print(df.duplicated().sum())
+print(df.dtypes)</pre
+        >
+      </details>
+    </section>
+
+    <section class="task">
+      <h2>3. Steps to Clean the Data</h2>
+      <p>
+        List out the steps needed to clean up the data. This might include
+        handling missing values, removing duplicates, correcting data types,
+        etc.
+      </p>
+      <details>
+        <summary>Hint</summary>
+        <p><strong>Example Steps:</strong></p>
+        <ul>
+          <li>Fill missing values with appropriate values.</li>
+          <li>Drop or impute missing data.</li>
+          <li>Remove duplicate rows.</li>
+          <li>Convert data types to the correct format.</li>
+        </ul>
+      </details>
+    </section>
+
+    <section class="task">
+      <h2>4. Jupyter Notebook Cells</h2>
+      <p>
+        In your Jupyter Notebook, separate each step of the cleaning process
+        into individual cells. This will make your process clear and organized.
+      </p>
+      <details>
+        <summary>Hint</summary>
+        <p><strong>Example:</strong></p>
+        <pre class="code-block">
+# Cell 1: Read and Transform CSV
+import pandas as pd
+df = pd.read_csv('path_to_csv.csv')
+
+# Cell 2: List Issues
+print(df.isnull().sum())
+print(df.duplicated().sum())
+
+# Cell 3: Clean Data
+df.fillna(value='Unknown', inplace=True)
+df.drop_duplicates(inplace=True)
+df['column_name'] = df['column_name'].astype(int)</pre
+        >
+      </details>
+    </section>
+
+    <section class="task">
+      <h2>5. Showcase Cleaned Data</h2>
+      <p>
+        Showcase the cleaned data and identify any further potential
+        improvements. Discuss any remaining issues or potential enhancements.
+      </p>
+      <details>
+        <summary>Hint</summary>
+        <p><strong>Example Code:</strong></p>
+        <pre class="code-block">
+print(df.head())
+print(df.describe())
+# Further improvements can include feature engineering, more advanced data imputation techniques, etc.</pre
+        >
+      </details>
+    </section>
+
+    <br />
+    <p><a href="../index.html">Back to Main Page</a></p>
+  </body>
+</html>
