@@ -1,54 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Introduction to NumPy</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <header>
-        <h1>Introduction to NumPy</h1>
+      <h1>Introduction to NumPy</h1>
     </header>
 
     <div class="container">
-        <aside class="sidebar">
-            <nav>
-                <ul>
-                    <li><a href="index.html">Introduction to Pandas</a></li>
-                    <li><a href="numpy_tutorial.html" class="active">Introduction to NumPy</a></li>
-                </ul>
-            </nav>
-        </aside>
-        <main>
-            <section class="overview">
-                <h2>Overview</h2>
-                <p>This tutorial introduces NumPy, a fundamental package for scientific computing in Python. NumPy provides support for large, multi-dimensional arrays and matrices, along with a large collection of mathematical functions to operate on these arrays.</p>
+      <aside class="sidebar">
+        <nav>
+          <ul>
+            <li><a href="index.html">Introduction to Pandas</a></li>
+            <li>
+              <a href="numpy_tutorial.html" class="active"
+                >Introduction to NumPy</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <main>
+        <section class="overview">
+          <h2>Overview</h2>
+          <p>
+            This tutorial introduces NumPy, a fundamental package for scientific
+            computing in Python. NumPy provides support for large,
+            multi-dimensional arrays and matrices, along with a large collection
+            of mathematical functions to operate on these arrays.
+          </p>
 
-                <h3>What is NumPy?</h3>
-                <p>NumPy, which stands for Numerical Python, is a core library for numerical and scientific computing in Python. It offers support for array operations, linear algebra, statistical operations, and more. NumPy's core data structure is the <code>ndarray</code>, a powerful n-dimensional array object that supports a wide range of mathematical operations.</p>
+          <h3>What is NumPy?</h3>
+          <p>
+            NumPy, which stands for Numerical Python, is a core library for
+            numerical and scientific computing in Python. It offers support for
+            array operations, linear algebra, statistical operations, and more.
+            NumPy's core data structure is the <code>ndarray</code>, a powerful
+            n-dimensional array object that supports a wide range of
+            mathematical operations.
+          </p>
 
-                <h3>Installation</h3>
-                <p>To install NumPy, use the following pip command:</p>
-                <pre class="code-block">pip install numpy</pre>
-                <p>After installation, you can verify the installation and check the version of NumPy using the following code:</p>
-                <pre class="code-block">import numpy as np
-print(np.__version__)</pre>
-            </section>
+          <h3>Installation</h3>
+          <p>To install NumPy, use the following pip command:</p>
+          <pre class="code-block">pip install numpy</pre>
+          <p>
+            After installation, you can verify the installation and check the
+            version of NumPy using the following code:
+          </p>
+          <pre class="code-block">
+import numpy as np
+print(np.__version__)</pre
+          >
+        </section>
 
-            <section class="getting-started">
-                <h2>Getting Started</h2>
-                <h3>Importing NumPy</h3>
-                <p>To use NumPy in your Python scripts, you need to import it. It is a common practice to import NumPy using the alias <code>np</code>:</p>
-                <pre class="code-block">import numpy as np</pre>
-                <p>By importing NumPy as <code>np</code>, you can use <code>np</code> as a prefix to access NumPy functions and classes, making your code cleaner and more concise.</p>
-            </section>
+        <section class="getting-started">
+          <h2>Getting Started</h2>
+          <h3>Importing NumPy</h3>
+          <p>
+            To use NumPy in your Python scripts, you need to import it. It is a
+            common practice to import NumPy using the alias <code>np</code>:
+          </p>
+          <pre class="code-block">import numpy as np</pre>
+          <p>
+            By importing NumPy as <code>np</code>, you can use
+            <code>np</code> as a prefix to access NumPy functions and classes,
+            making your code cleaner and more concise.
+          </p>
+        </section>
 
-            <section class="numpy-arrays">
-                <h2>NumPy Arrays</h2>
-                <h3>Creating Arrays</h3>
-                <p>Arrays are the central feature of NumPy. You can create arrays from Python lists or tuples using <code>np.array()</code>. Additionally, NumPy provides several functions to create arrays:</p>
-                <pre class="code-block"># Creating an array from a list
+        <section class="numpy-arrays">
+          <h2>NumPy Arrays</h2>
+          <h3>Creating Arrays</h3>
+          <p>
+            Arrays are the central feature of NumPy. You can create arrays from
+            Python lists or tuples using <code>np.array()</code>. Additionally,
+            NumPy provides several functions to create arrays:
+          </p>
+          <pre class="code-block">
+# Creating an array from a list
 array1 = np.array([1, 2, 3, 4])
 
 # Creating a 2D array from a list of lists
@@ -62,34 +95,55 @@ ones = np.ones((2, 2))    # Shape: 2x2
 
 # Creating an array with a range of values
 arange = np.arange(0, 10, 2)  # [0, 2, 4, 6, 8]
-</pre>
+</pre
+          >
 
-                <h3>Array Attributes</h3>
-                <p>NumPy arrays have several important attributes that provide information about their structure:</p>
-                <pre class="code-block">print(array1.shape)  # Output: (4,) - 1D array with 4 elements
+          <h3>Array Attributes</h3>
+          <p>
+            NumPy arrays have several important attributes that provide
+            information about their structure:
+          </p>
+          <pre class="code-block">
+print(array1.shape)  # Output: (4,) - 1D array with 4 elements
 print(array2.shape)  # Output: (2, 2) - 2D array with 2 rows and 2 columns
 print(array1.size)   # Output: 4 - Total number of elements in the array
 print(array2.dtype)  # Output: int64 - Data type of the elements in the array
-</pre>
-            </section>
+</pre
+          >
+        </section>
 
-            <section class="basic-operations">
-                <h2>Basic Array Operations</h2>
-                <h3>Indexing and Slicing</h3>
-                <p>Indexing and slicing allow you to access elements or subarrays within an array:</p>
-                <pre class="code-block">print(array2[0, 1])      # Output: 2 - Element at first row, second column
+        <section class="basic-operations">
+          <h2>Basic Array Operations</h2>
+          <h3>Indexing and Slicing</h3>
+          <p>
+            Indexing and slicing allow you to access elements or subarrays
+            within an array:
+          </p>
+          <pre class="code-block">
+print(array2[0, 1])      # Output: 2 - Element at first row, second column
 print(array2[:, 1])       # Output: [2, 4] - All rows, second column
-</pre>
+</pre
+          >
 
-                <h3>Array Arithmetic</h3>
-                <p>NumPy allows element-wise arithmetic operations. Operations are performed element-wise on arrays of the same shape:</p>
-                <pre class="code-block">result = array1 + 2
+          <h3>Array Arithmetic</h3>
+          <p>
+            NumPy allows element-wise arithmetic operations. Operations are
+            performed element-wise on arrays of the same shape:
+          </p>
+          <pre class="code-block">
+result = array1 + 2
 print(result)  # Output: [3, 4, 5, 6] - Adding 2 to each element of array1
-</pre>
+</pre
+          >
 
-                <h3>Broadcasting</h3>
-                <p>Broadcasting allows NumPy to perform arithmetic operations on arrays of different shapes. It works by automatically expanding the dimensions of the smaller array:</p>
-                <pre class="code-block">array3 = np.array([[1], [2], [3]])
+          <h3>Broadcasting</h3>
+          <p>
+            Broadcasting allows NumPy to perform arithmetic operations on arrays
+            of different shapes. It works by automatically expanding the
+            dimensions of the smaller array:
+          </p>
+          <pre class="code-block">
+array3 = np.array([[1], [2], [3]])
 array4 = np.array([1, 2])
 print(array3 + array4)
 # Output:
@@ -97,59 +151,631 @@ print(array3 + array4)
 #  [3, 4]
 #  [4, 5]]
 # The smaller array is broadcasted across the larger array
-</pre>
-            </section>
+</pre
+          >
+        </section>
 
-            <section class="array-manipulation">
-                <h2>Array Manipulation</h2>
-                <h3>Reshaping Arrays</h3>
-                <p>Reshaping changes the shape of an array without modifying its data. It is useful for transforming data into different dimensions:</p>
-                <pre class="code-block">reshaped = array1.reshape((2, 2))
+        <section class="array-manipulation">
+          <h2>Array Manipulation</h2>
+          <h3>Reshaping Arrays</h3>
+          <p>
+            Reshaping changes the shape of an array without modifying its data.
+            It is useful for transforming data into different dimensions:
+          </p>
+          <pre class="code-block">
+reshaped = array1.reshape((2, 2))
 print(reshaped)
 # Output:
 # [[1, 2]
 #  [3, 4]]
 # Reshaped array to 2 rows and 2 columns
-</pre>
+</pre
+          >
 
-                <h3>Flattening Arrays</h3>
-                <p>Flattening converts a multi-dimensional array into a one-dimensional array. This is often used for simplifying data:</p>
-                <pre class="code-block">flattened = reshaped.flatten()
+          <h3>Flattening Arrays</h3>
+          <p>
+            Flattening converts a multi-dimensional array into a one-dimensional
+            array. This is often used for simplifying data:
+          </p>
+          <pre class="code-block">
+flattened = reshaped.flatten()
 print(flattened)
 # Output: [1, 2, 3, 4] - Flattened to a 1D array
-</pre>
+</pre
+          >
 
-                <h3>Transposing Arrays</h3>
-                <p>Transposing swaps the rows and columns of a 2D array, which is useful for many matrix operations:</p>
-                <pre class="code-block">transposed = array2.T
+          <h3>Transposing Arrays</h3>
+          <p>
+            Transposing swaps the rows and columns of a 2D array, which is
+            useful for many matrix operations:
+          </p>
+          <pre class="code-block">
+transposed = array2.T
 print(transposed)
 # Output:
 # [[1, 3]
 #  [2, 4]] - Transposed array
-</pre>
-            </section>
+</pre
+          >
+        </section>
 
-            <section class="statistical-operations">
-                <h2>Statistical Operations</h2>
-                <h3>Descriptive Statistics</h3>
-                <p>NumPy provides methods to compute common statistical measures for arrays:</p>
-                <pre class="code-block">print(np.mean(array1))    # Output: 2.5 - Mean of the elements
+        <section class="statistical-operations">
+          <h2>Statistical Operations</h2>
+          <h3>Descriptive Statistics</h3>
+          <p>
+            NumPy provides methods to compute common statistical measures for
+            arrays:
+          </p>
+          <pre class="code-block">
+print(np.mean(array1))    # Output: 2.5 - Mean of the elements
 print(np.median(array1))  # Output: 2.5 - Median of the elements
 print(np.std(array1))     # Output: 1.118033988749895 - Standard deviation of the elements
 print(np.sum(array1))     # Output: 10 - Sum of the elements
-</pre>
+</pre
+          >
 
-                <h3>Aggregation Functions</h3>
-                <p>Aggregation functions help in finding extreme values and their positions within an array:</p>
-                <pre class="code-block">print(np.min(array1))    # Output: 1 - Minimum value
+          <h3>Aggregation Functions</h3>
+          <p>
+            Aggregation functions help in finding extreme values and their
+            positions within an array:
+          </p>
+          <pre class="code-block">
+print(np.min(array1))    # Output: 1 - Minimum value
 print(np.max(array1))    # Output: 4 - Maximum value
 print(np.argmin(array1)) # Output: 0 - Index of the minimum value
-</pre>
-            </section>
-        </main>
+</pre
+          >
+        </section>
+
+        <section class="iterating-arrays">
+          <h2>Iterating Through NumPy Arrays</h2>
+          <p>
+            Iterating through NumPy arrays is similar to iterating through
+            regular Python lists. However, NumPy provides specialized functions
+            that make it easier to iterate over multi-dimensional arrays
+            efficiently. Below are different ways to iterate over arrays, along
+            with some practical examples.
+          </p>
+
+          <h3>Basic Iteration</h3>
+          <p>
+            For a one-dimensional array, you can simply use a regular for loop
+            to iterate over each element:
+          </p>
+          <pre class="code-block">import numpy as np
+            
+array_1d = np.array([1, 2, 3, 4])
+
+for x in array_1d:
+    print(x)
+# Output:
+# 1
+# 2
+# 3
+# 4</pre>
+
+          <h3>Iterating Over Multi-Dimensional Arrays</h3>
+          <p>
+            When dealing with multi-dimensional arrays, you can use
+            <code>np.nditer()</code> to iterate over each element regardless of
+            the array's dimensions. This function flattens the array, allowing
+            you to loop through each element one by one:
+          </p>
+          <pre class="code-block">array_2d = np.array([[1, 2], [3, 4], [5, 6]])
+            
+for x in np.nditer(array_2d):
+    print(x)
+# Output:
+# 1
+# 2
+# 3
+# 4
+# 5
+# 6</pre>
+          <p>
+            This method is particularly useful when you need to perform
+            operations on each individual element of a multi-dimensional array.
+          </p>
+
+          <h3>Iterating with Indexes</h3>
+          <p>
+            To iterate over both the elements and their corresponding indices in
+            a multi-dimensional array, you can use
+            <code>np.ndenumerate()</code>. This function returns both the index
+            and the value at that index:
+          </p>
+          <pre class="code-block">for idx, x in np.ndenumerate(array_2d):
+    print(f"Index: {idx}, Value: {x}")
+# Output:
+# Index: (0, 0), Value: 1
+# Index: (0, 1), Value: 2
+# Index: (1, 0), Value: 3
+# Index: (1, 1), Value: 4
+# Index: (2, 0), Value: 5
+# Index: (2, 1), Value: 6</pre>
+          <p>
+            This method is particularly useful when you need to know the
+            position of each element within the array, such as when performing
+            operations based on the element's location.
+          </p>
+
+          <h3>Modifying Array Elements During Iteration</h3>
+          <p>
+            If you need to modify elements of a NumPy array during iteration,
+            it's crucial to enable write access explicitly. By default,
+            <code>np.nditer()</code> returns a read-only view of the array, so
+            you'll need to set the <code>op_flags</code> parameter to allow
+            writing:
+          </p>
+          <pre class="code-block">for x in np.nditer(array_2d, op_flags=['readwrite']):
+    x[...] = x * 2
+
+print(array_2d)
+# Output:
+# [[ 2  4]
+#  [ 6  8]
+#  [10 12]]</pre>
+          <p>
+            This approach is efficient and maintains the integrity of the array
+            while allowing you to modify its elements directly within the loop.
+          </p>
+
+          <h3>Iterating with Custom Steps</h3>
+          <p>
+            For more complex iteration needs, such as iterating over every
+            second element or iterating over a slice of the array, you can
+            combine slicing with <code>np.nditer()</code>:
+          </p>
+          <pre class="code-block">for x in np.nditer(array_2d[:, ::2]):
+    print(x)
+# Output:
+# 1
+# 3
+# 5</pre>
+          <p>
+            This example iterates over every second element in each row,
+            demonstrating how you can control the iteration process with custom
+            steps.
+          </p>
+        </section>
+
+        <section class="joining-arrays">
+          <h2>Joining NumPy Arrays</h2>
+          <p>
+            NumPy allows you to join arrays along different axes using functions
+            like <code>np.concatenate()</code>, <code>np.vstack()</code>, and
+            <code>np.hstack()</code>:
+          </p>
+          <pre class="code-block">array1 = np.array([1, 2, 3])
+array2 = np.array([4, 5, 6])
+
+# Concatenate along the first axis (row-wise)
+result = np.concatenate((array1, array2))
+print(result)
+# Output: [1, 2, 3, 4, 5, 6]
+
+# Vertical stack
+vstack_result = np.vstack((array1, array2))
+print(vstack_result)
+# Output:
+# [[1, 2, 3]
+#  [4, 5, 6]]
+
+# Horizontal stack
+hstack_result = np.hstack((array1, array2))
+print(hstack_result)
+# Output: [1, 2, 3, 4, 5, 6]</pre>
+        </section>
+
+        <section class="statistical-distributions">
+          <h2>Statistical Distributions in NumPy</h2>
+          <p>
+            NumPy provides a wide range of functions to generate random numbers
+            from various statistical distributions. These functions are
+            essential in simulations, probabilistic modeling, and data analysis.
+            Below are examples of some commonly used distributions:
+          </p>
+
+          <h3>Normal Distribution</h3>
+          <p>
+            The normal distribution, also known as the Gaussian distribution, is
+            the most common probability distribution, often used in the natural
+            and social sciences to represent real-valued random variables whose
+            distributions are not known. The probability density function (PDF)
+            of the normal distribution is:
+          </p>
+          <p><code>f(x) = (1 / (σ√2π)) * exp(-0.5 * ((x - μ) / σ)^2)</code></p>
+          <p>
+            where <code>μ</code> is the mean, and <code>σ</code> is the standard
+            deviation. The <code>np.random.normal()</code> function allows you
+            to generate samples from a normal distribution:
+          </p>
+          <pre class="code-block">import numpy as np
+
+normal_dist = np.random.normal(loc=0, scale=1, size=1000)
+print(normal_dist[:10])  # Output: First 10 elements of the normal distribution</pre>
+          <p>
+            In this example, the distribution has a mean (<code>loc</code>) of 0
+            and a standard deviation (<code>scale</code>) of 1, generating 1000
+            random samples.
+          </p>
+          <p>
+            This distribution is useful in many applications, including
+            hypothesis testing, statistical analysis, and in scenarios where
+            data tends to cluster around a central mean with symmetrical tails.
+          </p>
+
+          <h3>Poisson Distribution</h3>
+          <p>
+            The Poisson distribution is a discrete probability distribution that
+            expresses the probability of a given number of events occurring in a
+            fixed interval of time or space, provided that these events happen
+            with a known constant mean rate and independently of the time since
+            the last event. The probability mass function (PMF) is:
+          </p>
+          <p><code>P(X=k) = (λ^k * exp(-λ)) / k!</code></p>
+          <p>
+            where <code>λ</code> (lambda) is the average number of events in the
+            given time interval. You can generate a Poisson-distributed set of
+            random numbers using <code>np.random.poisson()</code>:
+          </p>
+          <pre class="code-block">poisson_dist = np.random.poisson(lam=3, size=1000)
+print(poisson_dist[:10])  # Output: First 10 elements of the Poisson distribution</pre>
+          <p>
+            In this example, <code>lam=3</code> indicates that, on average, 3
+            events occur in the interval, and 1000 samples are generated.
+          </p>
+          <p>
+            This distribution is commonly used in queuing theory,
+            telecommunications, and scenarios where events occur independently
+            with a constant mean rate.
+          </p>
+
+          <h3>Binomial Distribution</h3>
+          <p>
+            The binomial distribution is a discrete probability distribution
+            that represents the number of successes in a fixed number of
+            independent Bernoulli trials (experiments), each with the same
+            probability of success. The probability mass function (PMF) is:
+          </p>
+          <p><code>P(X=k) = (nCk) * p^k * (1-p)^(n-k)</code></p>
+          <p>
+            where <code>n</code> is the number of trials, <code>k</code> is the
+            number of successes, and <code>p</code> is the probability of
+            success on each trial. The
+            <code>np.random.binomial()</code> function generates random samples
+            from a binomial distribution:
+          </p>
+          <pre class="code-block">binomial_dist = np.random.binomial(n=10, p=0.5, size=1000)
+print(binomial_dist[:10])  # Output: First 10 elements of the Binomial distribution</pre>
+          <p>
+            In this example, 10 trials are conducted with a probability of
+            success <code>p=0.5</code> in each trial, generating 1000 samples.
+          </p>
+          <p>
+            This distribution is essential in quality control, survey sampling,
+            and genetics, where the outcomes are limited to two possibilities
+            (e.g., success/failure, yes/no).
+          </p>
+
+          <h3>Uniform Distribution</h3>
+          <p>
+            The uniform distribution is a type of probability distribution in
+            which all outcomes are equally likely. The distribution is defined
+            by two parameters: <code>low</code> and <code>high</code>, which
+            represent the lower and upper bounds, respectively. The probability
+            density function (PDF) is:
+          </p>
+          <p><code>f(x) = 1 / (b - a)</code> for <code>a ≤ x ≤ b</code></p>
+          <p>
+            where <code>a</code> is the lower bound and <code>b</code> is the
+            upper bound. The <code>np.random.uniform()</code> function allows
+            you to generate random samples from a uniform distribution:
+          </p>
+          <pre class="code-block">uniform_dist = np.random.uniform(low=0.0, high=1.0, size=1000)
+print(uniform_dist[:10])  # Output: First 10 elements of the Uniform distribution</pre>
+          <p>
+            In this example, random values between 0.0 and 1.0 are generated
+            uniformly, with each number having an equal chance of appearing. A
+            total of 1000 samples are generated.
+          </p>
+          <p>
+            The uniform distribution is often used in simulations, random
+            sampling, and scenarios where each outcome is equally likely, such
+            as in gaming or decision-making processes.
+          </p>
+        </section>
+
+
+        <section class="data-visualization">
+            <h2>Data Visualization Using NumPy</h2>
+            <p>
+              Data visualization is crucial for understanding and presenting data effectively. NumPy, in combination with Matplotlib, provides tools to create various types of plots and charts to help visualize data distributions and relationships. Below are some common types of visualizations you can create:
+            </p>
+          
+            <h3>1. Line Plots</h3>
+            <p>
+              Line plots are used to display data points connected by straight lines, which is helpful for visualizing trends over time or continuous variables.
+            </p>
+            <pre class="code-block">import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate data
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+# Create line plot
+plt.plot(x, y, color='b', linestyle='-', marker='o')
+plt.title('Sine Wave')
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.grid(True)
+plt.show()</pre>
+          
+            <h3>2. Scatter Plots</h3>
+            <p>
+              Scatter plots show the relationship between two variables by displaying data points on a Cartesian plane. This type of plot helps to identify correlations or patterns.
+            </p>
+            <pre class="code-block">import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate random data
+x = np.random.rand(50)
+y = np.random.rand(50)
+
+# Create scatter plot
+plt.scatter(x, y, color='r', marker='x')
+plt.title('Random Scatter Plot')
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.grid(True)
+plt.show()</pre>
+          
+            <h3>3. Histograms</h3>
+            <p>
+              Histograms are used to visualize the distribution of a dataset by grouping data points into bins and displaying the frequency of each bin.
+            </p>
+            <pre class="code-block">import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate normally distributed data
+data = np.random.randn(1000)
+
+# Create histogram
+plt.hist(data, bins=30, color='g', alpha=0.7)
+plt.title('Histogram of Normally Distributed Data')
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.grid(True)
+plt.show()</pre>
+          
+            <h3>4. Combining Multiple Plots</h3>
+            <p>
+              Combining multiple plots in a single figure can provide more comprehensive insights by comparing different visualizations side by side.
+            </p>
+            <pre class="code-block">import numpy as np
+import matplotlib.pyplot as plt
+
+# Data for line and scatter plots
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+x_scatter = np.random.rand(50)
+y_scatter = np.random.rand(50)
+
+# Create figure with subplots
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
+
+# Line plot
+ax1.plot(x, y, color='b', linestyle='-', marker='o')
+ax1.set_title('Sine Wave')
+ax1.set_xlabel('X-axis')
+ax1.set_ylabel('Y-axis')
+ax1.grid(True)
+
+# Scatter plot
+ax2.scatter(x_scatter, y_scatter, color='r', marker='x')
+ax2.set_title('Random Scatter Plot')
+ax2.set_xlabel('X-axis')
+ax2.set_ylabel('Y-axis')
+ax2.grid(True)
+
+plt.tight_layout()
+plt.show()</pre>
+          
+            <h3>5. Customizing Plots</h3>
+            <p>
+              Matplotlib allows extensive customization of plots, including colors, labels, and annotations. Customizing plots can help highlight specific aspects of the data.
+            </p>
+            <pre class="code-block">import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate data
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+# Create customized line plot
+plt.plot(x, y, color='purple', linestyle='--', marker='o', label='Sine Wave')
+plt.title('Customized Sine Wave Plot')
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.legend()
+plt.grid(True)
+plt.show()</pre>
+          
+            <p>
+              These examples illustrate how to use NumPy and Matplotlib for effective data visualization. Experiment with different types of plots and customization options to best represent your data.
+            </p>
+          </section>
+          
+        <section class="practice-exercises">
+            <h2>Practice Exercises</h2>
+            <h4>1. NumPy Array Filtering</h4>
+            <p>Write a NumPy program that creates a 2D NumPy array of random floats and uses boolean indexing to select elements that satisfy multiple conditions (e.g., greater than 0.5 and less than 0.8).</p>
+            <details>
+                <summary>Solution</summary>
+                <div>
+                    <pre class="code-block">import numpy as np
+                        
+# Create a 2D array of random floats
+array = np.random.rand(5, 5)
+
+# Boolean indexing to select elements > 0.5 and < 0.8
+filtered_array = array[(array > 0.5) & (array < 0.8)]
+
+print("Original Array:")
+print(array)
+print("Filtered Array:")
+print(filtered_array)</pre>
+                </div>
+            </details>
+            <br>
+
+        <h4>2. Creating and Stacking Matrices</h4>
+        <p>
+            Write a NumPy program to create a 3x3 identity matrix and stack it vertically and horizontally.</p>
+            <details>
+                <summary>Solution</summary>
+                <div>
+                    <pre class="code-block">import numpy as np
+
+# Create a 3x3 identity matrix
+identity_matrix = np.eye(3)
+
+# Stack vertically
+vertical_stack = np.vstack([identity_matrix, identity_matrix])
+
+# Stack horizontally
+horizontal_stack = np.hstack([identity_matrix, identity_matrix])
+
+print("Identity Matrix:")
+print(identity_matrix)
+print("Vertical Stack:")
+print(vertical_stack)
+print("Horizontal Stack:")
+print(horizontal_stack)</pre>
+                </div>
+            </details>
+            <br>
+            
+
+        <h4>3. Manufacturing Quality Control</h4>
+        <p>
+            A factory produces light bulbs, and the probability that a randomly selected bulb is defective is 0.02. If a random sample of 1000 bulbs is taken, what is the probability that:
+            <ol>
+                <li>Exactly 30 bulbs are defective?</li>
+                <li>At least 25 bulbs are defective?</li>
+                <li>Between 20 and 30 bulbs (inclusive) are defective?</li>
+            </ol>
+            </p>
+            <details>
+                <summary>Solution</summary>
+                <div>
+                    <pre class="code-block">import scipy.stats as stats
+
+# Parameters
+n = 1000  # Number of bulbs
+p = 0.02  # Probability of defect
+
+# Probability of exactly 30 defective bulbs
+prob_exactly_30 = stats.binom.pmf(30, n, p)
+
+# Probability of at least 25 defective bulbs
+prob_at_least_25 = 1 - stats.binom.cdf(24, n, p)
+
+# Probability of between 20 and 30 defective bulbs (inclusive)
+prob_between_20_and_30 = stats.binom.cdf(30, n, p) - stats.binom.cdf(19, n, p)
+
+print(f'Probability of exactly 30 defective bulbs: {prob_exactly_30}')
+print(f'Probability of at least 25 defective bulbs: {prob_at_least_25}')
+print(f'Probability of between 20 and 30 defective bulbs: {prob_between_20_and_30}')</pre>
+                </div>
+            </details>
+            <br>
+
+        <h4>4. Website Testing</h4>
+        <p>
+            You are running an A/B test on a website, where the probability of a user converting (clicking on a button) is 0.1. If you run the test with 500 users, calculate:
+            <ol>
+                <li>The probability that exactly 60 users convert.</li>
+                <li>The probability that fewer than 50 users convert.</li>
+                <li>The probability that between 40 and 70 users convert.</li>
+            </ol>
+        </p>
+        <details>
+            <summary>Solution</summary>
+            <div>
+                <pre class="code-block">import scipy.stats as stats
+
+# Parameters
+n_users = 500  # Number of users
+p_conversion = 0.1  # Probability of conversion
+
+# Probability of exactly 60 users converting
+prob_exactly_60 = stats.binom.pmf(60, n_users, p_conversion)
+
+# Probability of fewer than 50 users converting
+prob_fewer_than_50 = stats.binom.cdf(49, n_users, p_conversion)
+
+# Probability of between 40 and 70 users (inclusive) converting
+prob_between_40_and_70 = stats.binom.cdf(70, n_users, p_conversion) - stats.binom.cdf(39, n_users, p_conversion)
+
+print(f'Probability of exactly 60 users converting: {prob_exactly_60}')
+print(f'Probability of fewer than 50 users converting: {prob_fewer_than_50}')
+print(f'Probability of between 40 and 70 users converting: {prob_between_40_and_70}')</pre>
+            </div>
+        </details>
+        <br>
+
+        <h4>5. Call Center Analysis</h4>
+        <p>
+            A call center receives an average of 10 calls per hour. The manager wants to analyze the call center's performance based on the following criteria:
+            <ol>
+                <li>Calculate the probability that exactly 15 calls will be received in a given hour.</li>
+                <li>Determine the probability that more than 20 calls will be received in an hour.</li>
+                <li>Find the probability that fewer than 5 calls will be received in a 30-minute interval.</li>
+                <li>If the call center operates for 12 hours a day, calculate the probability that the total number of calls received in a day exceeds 130.</li>
+                <li>Determine the probability that in any given 15-minute interval, at least 3 calls are received.</li>
+            </ol>
+            </p>
+            <details>
+                <summary>Solution</summary>
+                <div>
+                    <pre class="code-block">import scipy.stats as stats
+
+# Parameters
+lambda_hour = 10  # Average calls per hour
+lambda_half_hour = lambda_hour / 2  # Average calls in 30 minutes
+lambda_quarter_hour = lambda_hour / 4  # Average calls in 15 minutes
+
+# Probability of exactly 15 calls in an hour
+prob_exactly_15 = stats.poisson.pmf(15, lambda_hour)
+
+# Probability of more than 20 calls in an hour
+prob_more_than_20 = 1 - stats.poisson.cdf(20, lambda_hour)
+
+# Probability of fewer than 5 calls in a 30-minute interval
+prob_fewer_than_5_half_hour = stats.poisson.cdf(4, lambda_half_hour)
+
+# Probability of more than 130 calls in a 12-hour day
+prob_more_than_130 = 1 - stats.poisson.cdf(130, lambda_hour * 12)
+
+# Probability of at least 3 calls in a 15-minute interval
+prob_at_least_3 = 1 - stats.poisson.cdf(2, lambda_quarter_hour)
+
+print(f'Probability of exactly 15 calls in an hour: {prob_exactly_15}')
+print(f'Probability of more than 20 calls in an hour: {prob_more_than_20}')
+print(f'Probability of fewer than 5 calls in a 30-minute interval: {prob_fewer_than_5_half_hour}')
+print(f'Probability of more than 130 calls in a 12-hour day: {prob_more_than_130}')
+print(f'Probability of at least 3 calls in a 15-minute interval: {prob_at_least_3}')</pre>
+                </div>
+            </details>
+            <br>
+
+        </section>
+      </main>
     </div>
     <footer>
-        <p>&copy; 2024 We Codez</p>
+      <p>&copy; 2024 We Codez</p>
     </footer>
-</body>
+  </body>
 </html>
