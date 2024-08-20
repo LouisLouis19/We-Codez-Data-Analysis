@@ -487,6 +487,93 @@ print(uniform_dist[:10])  # Output: First 10 elements of the Uniform distributio
         </section>
 
 
+        <section class="statistical-distributions">
+          <h2>Statistical Distributions in SciPy</h2>
+          <p>
+            In addition to NumPy, SciPy also provides a rich set of functions to work with statistical distributions.
+            Below are examples of some commonly used distributions using both libraries:
+          </p>
+        
+          <h3>Normal Distribution</h3>
+          <p>
+            Besides using <code>np.random.normal()</code>, you can also generate normal distribution samples and calculate
+            probability density functions using <code>scipy.stats.norm</code>:
+          </p>
+          <pre class="code-block">import numpy as np
+from scipy.stats import norm
+
+# Using NumPy
+normal_dist = np.random.normal(loc=0, scale=1, size=1000)
+print(normal_dist[:10])  # Output: First 10 elements of the normal distribution
+
+# Using SciPy
+x = np.linspace(-3, 3, 1000)
+pdf = norm.pdf(x, loc=0, scale=1)  # PDF for standard normal distribution
+print(pdf[:10])  # Output: First 10 values of the PDF</pre>
+          <p>
+            In this example, the PDF is calculated for 1000 evenly spaced points between -3 and 3, using a standard normal
+            distribution with a mean of 0 and a standard deviation of 1.
+          </p>
+        
+          <h3>Poisson Distribution</h3>
+          <p>
+            In addition to generating Poisson-distributed random numbers with <code>np.random.poisson()</code>, you can
+            also use <code>scipy.stats.poisson</code> to calculate probabilities and perform statistical analysis:
+          </p>
+          <pre class="code-block">from scipy.stats import poisson
+
+# Using NumPy
+poisson_dist = np.random.poisson(lam=3, size=1000)
+print(poisson_dist[:10])  # Output: First 10 elements of the Poisson distribution
+
+# Using SciPy
+pmf = poisson.pmf(k=range(10), mu=3)  # PMF for k = 0 to 9
+print(pmf)  # Output: PMF values for k=0 to k=9</pre>
+          <p>
+            Here, the PMF is calculated for values of <code>k</code> from 0 to 9, with a mean of 3 events per interval.
+          </p>
+        
+          <h3>Binomial Distribution</h3>
+          <p>
+            Besides using <code>np.random.binomial()</code> to generate samples, the binomial distribution's PMF can be
+            computed using <code>scipy.stats.binom</code>:
+          </p>
+          <pre class="code-block">from scipy.stats import binom
+
+# Using NumPy
+binomial_dist = np.random.binomial(n=10, p=0.5, size=1000)
+print(binomial_dist[:10])  # Output: First 10 elements of the Binomial distribution
+
+# Using SciPy
+pmf = binom.pmf(k=range(11), n=10, p=0.5)  # PMF for k=0 to 10
+print(pmf)  # Output: PMF values for k=0 to k=10</pre>
+          <p>
+            The PMF is calculated for values of <code>k</code> from 0 to 10, representing the number of successes out of 10 trials with a success probability of 0.5.
+          </p>
+        
+          <h3>Uniform Distribution</h3>
+          <p>
+            While NumPy can generate uniform random samples, SciPy provides <code>scipy.stats.uniform</code> to compute the
+            probability density function and perform other operations:
+          </p>
+          <pre class="code-block">from scipy.stats import uniform
+        
+# Using NumPy
+uniform_dist = np.random.uniform(low=0.0, high=1.0, size=1000)
+print(uniform_dist[:10])  # Output: First 10 elements of the Uniform distribution
+
+# Using SciPy
+x = np.linspace(0, 1, 1000)
+pdf = uniform.pdf(x, loc=0, scale=1)  # PDF for uniform distribution between 0 and 1
+print(pdf[:10])  # Output: First 10 values of the PDF</pre>
+          <p>
+            Here, the PDF is calculated for 1000 evenly spaced points between 0 and 1 using a uniform distribution with
+            lower bound 0 and upper bound 1.
+          </p>
+        </section>
+        
+
+
         <section class="data-visualization">
             <h2>Data Visualization Using NumPy</h2>
             <p>
