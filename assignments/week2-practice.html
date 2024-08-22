@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 2 Practice Exercises</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="assignments">
+    <h1>Data Cleaning Practice Exercises</h1>
+    <p>
+      Perform Data Cleaning on CSV Datasets to strengthen your understanding of
+      Concepts
+    </p>
+
+    <p>
+      The practice datasets can be found
+      <a
+        href="https://drive.google.com/drive/folders/1z8Vr2Fu_3NU11TukcHGi5wptzQ303oLu?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
+        >here</a
+      >.
+    </p>
+
+    <section class="task">
+      <h2>1. Warm Up Data Cleaning</h2>
+      <p>
+        Start with the Invoices Data and organize it by separating the
+        individual categories.
+      </p>
+      <br />
+      <p>
+        Start with the Hospital Data and clean up the information (text and
+        numbers) in the dataset. Suggest which items needs to be restocked!
+      </p>
+    </section>
+
+    <section class="task">
+      <h2>2. Athletes Dataset</h2>
+      <p>
+        Identify and list out the issues present in the data, then list out the
+        steps you would take to clean this dataset. Utilize the guiding
+        questions below to provide your analysis of the cleaned data, feel free
+        to clean, analyze, and explore the dataset beyond these guiding
+        questions.
+      </p>
+      <details>
+        <summary>Guiding Questions</summary>
+        <p>
+          <strong
+            >1. Which countries produce the most successful athletes across
+            different disciplines?</strong
+          >
+        </p>
+        <p>
+          How do we clean and process the data to determine which countries have
+          the highest number of athletes excelling in various disciplines,
+          factoring in missing or inconsistent country data and discipline
+          classifications?
+        </p>
+
+        <p>
+          <strong
+            >2. How does the success rate of athletes vary with age?</strong
+          >
+        </p>
+        <p>
+          What trends can be identified when analyzing how age correlates with
+          success across different sports disciplines, considering outliers,
+          missing birthdates, and the need to standardize the calculation of age
+          from inconsistent date formats?
+        </p>
+
+        <p>
+          <strong
+            >3. How do physical attributes like height and weight correlate with
+            success in different sports disciplines?</strong
+          >
+        </p>
+        <p>
+          How can we clean the height and weight columns, handle outliers, and
+          then analyze how these physical attributes contribute to performance
+          in different sports?
+        </p>
+
+        <p>
+          <strong
+            >4. How do athletes' birthplaces and residence locations influence
+            their success?</strong
+          >
+        </p>
+        <p>
+          What patterns can be identified between where athletes are born versus
+          where they reside and their success in different sports, considering
+          missing and inconsistent location data?
+        </p>
+
+        <p>
+          <strong
+            >5. How does the presence of sporting relatives impact an athlete’s
+            performance and career longevity?</strong
+          >
+        </p>
+        <p>
+          How do we clean and process the sporting_relatives column, considering
+          multiple entries and missing data, and analyze the effect of having
+          relatives in sports on an athlete’s success?
+        </p>
+
+        <p>
+          <strong
+            >6. Is there a significant correlation between the number of years
+            an athlete has been in their sport and their success?</strong
+          >
+        </p>
+        <p>
+          How can we clean and process data around athletes' start dates or
+          career lengths (if available) and link this to their performance,
+          adjusting for missing or inconsistent information?
+        </p>
+
+        <p>
+          <strong
+            >7. How do factors like education level and occupation influence
+            athletes' performance across disciplines?</strong
+          >
+        </p>
+        <p>
+          What trends can be drawn when comparing the education levels or
+          occupations of athletes with their success in their sports,
+          considering missing or incomplete data in these fields?
+        </p>
+      </details>
+    </section>
+
+    <section class="task">
+      <h2>3. Data Science Jobs Dataset</h2>
+      <p>
+        Identify and list out the issues present in the data, then list out the
+        steps you would take to clean this dataset. Utilize the guiding
+        questions below to provide your analysis of the cleaned data, feel free
+        to clean, analyze, and explore the dataset beyond these guiding
+        questions.
+      </p>
+      <details>
+        <summary>Guiding Questions</summary>
+        <p>
+          <strong
+            >1. How do salary estimates compare across different company sizes,
+            adjusting for outliers and inconsistent salary formats?</strong
+          >
+        </p>
+        <p>
+          This requires cleaning the Salary Estimate column to extract numeric
+          values, dealing with ranges, adjusting for outliers, and mapping the
+          salary to company sizes across inconsistent formats.
+        </p>
+
+        <p>
+          <strong
+            >2. What trends can be observed between company ratings and the job
+            titles offered by companies, accounting for inconsistencies in job
+            title naming conventions?</strong
+          >
+        </p>
+        <p>
+          This requires grouping and standardizing job titles that may have
+          slight variations, then correlating them with company ratings while
+          addressing missing or misleading ratings.
+        </p>
+
+        <p>
+          <strong
+            >3. How does job location (city/state) impact salary, considering
+            both location data inconsistencies and salary formatting
+            issues?</strong
+          >
+        </p>
+        <p>
+          Cleaning Location and Salary Estimate columns will be necessary,
+          standardizing city and state data, and resolving salary discrepancies,
+          including ranges and estimated values.
+        </p>
+
+        <p>
+          <strong
+            >4. How do factors like industry and sector correlate with company
+            success, using revenue as a proxy, considering missing and vague
+            revenue data?</strong
+          >
+        </p>
+        <p>
+          Requires cleaning the Revenue column, standardizing formats (e.g.,
+          ranges, missing values, and ambiguous entries like "Unknown"), and
+          performing multi-variable analysis across Industry and Sector.
+        </p>
+
+        <p>
+          <strong
+            >5. How does the year a company was founded correlate with its
+            rating, industry, and revenue, after handling missing or erroneous
+            founding years and dealing with categorical data issues?</strong
+          >
+        </p>
+        <p>
+          This involves cleaning the Founded column to address missing,
+          incorrect, or nonsensical founding years and analyzing how older
+          versus newer companies perform across multiple dimensions.
+        </p>
+
+        <p>
+          <strong
+            >6. How do salary estimates differ for the same job title between
+            companies of different ownership types, requiring extensive data
+            cleaning across both salary and company ownership data?</strong
+          >
+        </p>
+        <p>
+          Cleaning Type of ownership and Salary Estimate is necessary to ensure
+          consistent categories and formats, followed by cross-analysis between
+          these variables.
+        </p>
+
+        <p>
+          <strong
+            >7. What influence do competitors listed in the dataset have on the
+            success of a company, in terms of salary and rating, considering
+            missing and incomplete competitor data?</strong
+          >
+        </p>
+        <p>
+          Cleaning the Competitors column (e.g., missing data, entries like -1,
+          multiple competitors in one field) will be essential before
+          correlating this information with salary, ratings, and company
+          performance.
+        </p>
+      </details>
+    </section>
+
+    <section class="task">
+      <h2>4. News Sentiment Analysis Dataset</h2>
+      <p>
+        Identify and list out the issues present in the data, then list out the
+        steps you would take to clean this dataset. Utilize the guiding
+        questions below to provide your analysis of the cleaned data, feel free
+        to clean, analyze, and explore the dataset beyond these guiding
+        questions.
+      </p>
+      <details>
+        <summary>Guiding Questions</summary>
+        <p>
+          <strong
+            >1. How do sentiment trends differ across news sources over time,
+            accounting for inconsistencies in date formatting and missing
+            sentiment data?</strong
+          >
+        </p>
+        <p>
+          This requires cleaning the Published At column to ensure consistent
+          date formats, handling missing sentiment values, and performing
+          temporal analysis across different sources.
+        </p>
+
+        <p>
+          <strong
+            >2. What are the most frequent topics associated with each sentiment
+            category, considering noisy and inconsistent text in titles and
+            descriptions?</strong
+          >
+        </p>
+        <p>
+          Cleaning the Title and Description fields to remove irrelevant
+          information and standardize terms is needed before performing a topic
+          modeling analysis to identify common topics per sentiment category.
+        </p>
+
+        <p>
+          <strong
+            >3. How do sentiment distributions vary by news type (e.g.,
+            Business, Sports, Politics), after addressing missing or ambiguous
+            news type entries?</strong
+          >
+        </p>
+        <p>
+          Cleaning the Type column, ensuring consistent categorization of news
+          types, and analyzing sentiment distributions across these categories
+          will be required.
+        </p>
+
+        <p>
+          <strong
+            >4. How does the author’s identity correlate with sentiment trends
+            across articles, considering missing or ambiguous author
+            data?</strong
+          >
+        </p>
+        <p>
+          Cleaning the Author column, resolving missing entries, and
+          standardizing names are needed to explore the correlation between
+          specific authors and the sentiment they tend to express in their
+          articles.
+        </p>
+
+        <p>
+          <strong
+            >5. How does the time of publication influence the sentiment of news
+            articles, considering missing or incorrect timestamps in the
+            published dates?</strong
+          >
+        </p>
+        <p>
+          Cleaning and standardizing the Published At column to extract accurate
+          time information, dealing with missing data, and analyzing how
+          publication time (e.g., morning vs. evening) affects sentiment trends.
+        </p>
+
+        <p>
+          <strong
+            >6. Which sources are the most polarizing (i.e., have the most
+            extreme sentiment distributions), considering missing data and
+            duplicate entries?</strong
+          >
+        </p>
+        <p>
+          Cleaning the Source column, removing duplicates, handling missing
+          data, and performing a sentiment analysis to determine which sources
+          tend to have the most extreme positive or negative sentiments.
+        </p>
+      </details>
+    </section>
+
+    <br />
+    <p><a href="../index.html">Back to Main Page</a></p>
+  </body>
+</html>
