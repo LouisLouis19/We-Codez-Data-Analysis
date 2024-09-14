@@ -17,9 +17,10 @@
           <ul>
             <li><a href="index.html">Introduction to Pandas</a></li>
             <li>
-              <a href="numpy_tutorial.html" class="active"
-                >Introduction to NumPy</a
-              >
+              <a href="numpy_tutorial.html" class="active">Introduction to NumPy</a>
+            </li>
+            <li>
+              <a href="data_visualization.html">Introduction to Matplotlib</a>
             </li>
           </ul>
         </nav>
@@ -367,332 +368,161 @@ print(hstack_result)
 # Output: [1, 2, 3, 4, 5, 6]</pre>
         </section>
 
-        <section class="statistical-distributions">
-          <h2>Statistical Distributions in NumPy</h2>
+        <section class="probability-distributions">
+          <h2>Calculating Probability Distributions with SciPy</h2>
           <p>
-            NumPy provides a wide range of functions to generate random numbers
-            from various statistical distributions. These functions are
-            essential in simulations, probabilistic modeling, and data analysis.
-            Below are examples of some commonly used distributions:
-          </p>
-
-          <h3>Normal Distribution</h3>
-          <p>
-            The normal distribution, also known as the Gaussian distribution, is
-            the most common probability distribution, often used in the natural
-            and social sciences to represent real-valued random variables whose
-            distributions are not known. The probability density function (PDF)
-            of the normal distribution is:
-          </p>
-          <p><code>f(x) = (1 / (σ√2π)) * exp(-0.5 * ((x - μ) / σ)^2)</code></p>
-          <p>
-            where <code>μ</code> is the mean, and <code>σ</code> is the standard
-            deviation. The <code>np.random.normal()</code> function allows you
-            to generate samples from a normal distribution:
-          </p>
-          <pre class="code-block">import numpy as np
-
-normal_dist = np.random.normal(loc=0, scale=1, size=1000)
-print(normal_dist[:10])  # Output: First 10 elements of the normal distribution</pre>
-          <p>
-            In this example, the distribution has a mean (<code>loc</code>) of 0
-            and a standard deviation (<code>scale</code>) of 1, generating 1000
-            random samples.
-          </p>
-          <p>
-            This distribution is useful in many applications, including
-            hypothesis testing, statistical analysis, and in scenarios where
-            data tends to cluster around a central mean with symmetrical tails.
-          </p>
-
-          <h3>Poisson Distribution</h3>
-          <p>
-            The Poisson distribution is a discrete probability distribution that
-            expresses the probability of a given number of events occurring in a
-            fixed interval of time or space, provided that these events happen
-            with a known constant mean rate and independently of the time since
-            the last event. The probability mass function (PMF) is:
-          </p>
-          <p><code>P(X=k) = (λ^k * exp(-λ)) / k!</code></p>
-          <p>
-            where <code>λ</code> (lambda) is the average number of events in the
-            given time interval. You can generate a Poisson-distributed set of
-            random numbers using <code>np.random.poisson()</code>:
-          </p>
-          <pre class="code-block">poisson_dist = np.random.poisson(lam=3, size=1000)
-print(poisson_dist[:10])  # Output: First 10 elements of the Poisson distribution</pre>
-          <p>
-            In this example, <code>lam=3</code> indicates that, on average, 3
-            events occur in the interval, and 1000 samples are generated.
-          </p>
-          <p>
-            This distribution is commonly used in queuing theory,
-            telecommunications, and scenarios where events occur independently
-            with a constant mean rate.
-          </p>
-
-          <h3>Binomial Distribution</h3>
-          <p>
-            The binomial distribution is a discrete probability distribution
-            that represents the number of successes in a fixed number of
-            independent Bernoulli trials (experiments), each with the same
-            probability of success. The probability mass function (PMF) is:
-          </p>
-          <p><code>P(X=k) = (nCk) * p^k * (1-p)^(n-k)</code></p>
-          <p>
-            where <code>n</code> is the number of trials, <code>k</code> is the
-            number of successes, and <code>p</code> is the probability of
-            success on each trial. The
-            <code>np.random.binomial()</code> function generates random samples
-            from a binomial distribution:
-          </p>
-          <pre class="code-block">binomial_dist = np.random.binomial(n=10, p=0.5, size=1000)
-print(binomial_dist[:10])  # Output: First 10 elements of the Binomial distribution</pre>
-          <p>
-            In this example, 10 trials are conducted with a probability of
-            success <code>p=0.5</code> in each trial, generating 1000 samples.
-          </p>
-          <p>
-            This distribution is essential in quality control, survey sampling,
-            and genetics, where the outcomes are limited to two possibilities
-            (e.g., success/failure, yes/no).
-          </p>
-
-          <h3>Uniform Distribution</h3>
-          <p>
-            The uniform distribution is a type of probability distribution in
-            which all outcomes are equally likely. The distribution is defined
-            by two parameters: <code>low</code> and <code>high</code>, which
-            represent the lower and upper bounds, respectively. The probability
-            density function (PDF) is:
-          </p>
-          <p><code>f(x) = 1 / (b - a)</code> for <code>a ≤ x ≤ b</code></p>
-          <p>
-            where <code>a</code> is the lower bound and <code>b</code> is the
-            upper bound. The <code>np.random.uniform()</code> function allows
-            you to generate random samples from a uniform distribution:
-          </p>
-          <pre class="code-block">uniform_dist = np.random.uniform(low=0.0, high=1.0, size=1000)
-print(uniform_dist[:10])  # Output: First 10 elements of the Uniform distribution</pre>
-          <p>
-            In this example, random values between 0.0 and 1.0 are generated
-            uniformly, with each number having an equal chance of appearing. A
-            total of 1000 samples are generated.
-          </p>
-          <p>
-            The uniform distribution is often used in simulations, random
-            sampling, and scenarios where each outcome is equally likely, such
-            as in gaming or decision-making processes.
-          </p>
-        </section>
-
-
-        <section class="statistical-distributions">
-          <h2>Statistical Distributions in SciPy</h2>
-          <p>
-            In addition to NumPy, SciPy also provides a rich set of functions to work with statistical distributions.
-            Below are examples of some commonly used distributions using both libraries:
-          </p>
-        
-          <h3>Normal Distribution</h3>
-          <p>
-            Besides using <code>np.random.normal()</code>, you can also generate normal distribution samples and calculate
-            probability density functions using <code>scipy.stats.norm</code>:
-          </p>
-          <pre class="code-block">import numpy as np
-from scipy.stats import norm
-
-# Using NumPy
-normal_dist = np.random.normal(loc=0, scale=1, size=1000)
-print(normal_dist[:10])  # Output: First 10 elements of the normal distribution
-
-# Using SciPy
-x = np.linspace(-3, 3, 1000)
-pdf = norm.pdf(x, loc=0, scale=1)  # PDF for standard normal distribution
-print(pdf[:10])  # Output: First 10 values of the PDF</pre>
-          <p>
-            In this example, the PDF is calculated for 1000 evenly spaced points between -3 and 3, using a standard normal
-            distribution with a mean of 0 and a standard deviation of 1.
+            SciPy provides powerful tools for calculating various probability distributions,
+            including the probability mass function (PMF) and cumulative distribution function (CDF).
+            These functions are essential in statistical analysis, allowing you to model discrete and continuous random variables.
           </p>
         
           <h3>Poisson Distribution</h3>
           <p>
-            In addition to generating Poisson-distributed random numbers with <code>np.random.poisson()</code>, you can
-            also use <code>scipy.stats.poisson</code> to calculate probabilities and perform statistical analysis:
+            The Poisson distribution expresses the probability of a given number of events occurring in a fixed interval of time or space.
+            Using <code>scipy.stats.poisson</code>, we can calculate both the PMF and CDF of the Poisson distribution:
           </p>
           <pre class="code-block">from scipy.stats import poisson
 
-# Using NumPy
-poisson_dist = np.random.poisson(lam=3, size=1000)
-print(poisson_dist[:10])  # Output: First 10 elements of the Poisson distribution
+# PMF for Poisson distribution with λ=3
+pmf = poisson.pmf(k=range(10), mu=3)
+print(pmf)  # Output: PMF values for k=0 to k=9
 
-# Using SciPy
-pmf = poisson.pmf(k=range(10), mu=3)  # PMF for k = 0 to 9
-print(pmf)  # Output: PMF values for k=0 to k=9</pre>
+# CDF for Poisson distribution with λ=3
+cdf = poisson.cdf(k=range(10), mu=3)
+print(cdf)  # Output: CDF values for k=0 to k=9</pre>
           <p>
-            Here, the PMF is calculated for values of <code>k</code> from 0 to 9, with a mean of 3 events per interval.
+            The PMF calculates the probability of exactly <code>k</code> events happening,
+            while the CDF computes the cumulative probability up to <code>k</code> events.
           </p>
+        
+          <h4>Example Questions</h4>
+          <ol>
+            <li>
+              A factory produces an average of 3 defective products per hour. What is the probability that in a given hour, exactly 2 defective products will be produced? Use the Poisson distribution to find the answer:
+              <details>
+                <summary>Solution</summary>
+                <div>
+                  <pre class="code-block">from scipy.stats import poisson
+
+# Calculate the probability of exactly 2 defective products
+prob_exactly_2 = poisson.pmf(k=2, mu=3)
+print(prob_exactly_2)  # Output: Probability of exactly 2 defective products</pre>
+                </div>
+              </details>
+            </li>
+            <li>
+              What is the probability that 5 or fewer defective products will be produced in 3 hours? Calculate the cumulative distribution using the Poisson distribution:
+              <details>
+                <summary>Solution</summary>
+                <div>
+                  <pre class="code-block">from scipy.stats import poisson
+
+# Calculate the cumulative probability of 5 or fewer defective products
+prob_5_or_fewer = poisson.cdf(k=5, mu=3*3)  # λ = 3 defective products/hour * 3 hours
+print(prob_5_or_fewer)  # Output: Cumulative probability of 5 or fewer defective products in 3 hours</pre>
+                </div>
+              </details>
+            </li>
+          </ol>
         
           <h3>Binomial Distribution</h3>
           <p>
-            Besides using <code>np.random.binomial()</code> to generate samples, the binomial distribution's PMF can be
-            computed using <code>scipy.stats.binom</code>:
+            The binomial distribution models the number of successes in a fixed number of independent Bernoulli trials.
+            Using <code>scipy.stats.binom</code>, you can compute both the PMF and CDF:
           </p>
           <pre class="code-block">from scipy.stats import binom
 
-# Using NumPy
-binomial_dist = np.random.binomial(n=10, p=0.5, size=1000)
-print(binomial_dist[:10])  # Output: First 10 elements of the Binomial distribution
+# PMF for Binomial distribution with n=10 trials and p=0.5
+pmf = binom.pmf(k=range(11), n=10, p=0.5)
+print(pmf)  # Output: PMF values for k=0 to k=10
 
-# Using SciPy
-pmf = binom.pmf(k=range(11), n=10, p=0.5)  # PMF for k=0 to 10
-print(pmf)  # Output: PMF values for k=0 to k=10</pre>
+# CDF for Binomial distribution with n=10 trials and p=0.5
+cdf = binom.cdf(k=range(11), n=10, p=0.5)
+print(cdf)  # Output: CDF values for k=0 to k=10</pre>
           <p>
-            The PMF is calculated for values of <code>k</code> from 0 to 10, representing the number of successes out of 10 trials with a success probability of 0.5.
+            The PMF represents the probability of exactly <code>k</code> successes,
+            while the CDF gives the probability of having up to <code>k</code> successes.
           </p>
         
-          <h3>Uniform Distribution</h3>
-          <p>
-            While NumPy can generate uniform random samples, SciPy provides <code>scipy.stats.uniform</code> to compute the
-            probability density function and perform other operations:
-          </p>
-          <pre class="code-block">from scipy.stats import uniform
-        
-# Using NumPy
-uniform_dist = np.random.uniform(low=0.0, high=1.0, size=1000)
-print(uniform_dist[:10])  # Output: First 10 elements of the Uniform distribution
+          <h4>Example Questions</h4>
+          <ol>
+            <li>
+              A coin is flipped 10 times. What is the probability of getting exactly 6 heads? Use the binomial distribution to compute the PMF:
+              <details>
+                <summary>Solution</summary>
+                <div>
+                  <pre class="code-block">from scipy.stats import binom
 
-# Using SciPy
-x = np.linspace(0, 1, 1000)
-pdf = uniform.pdf(x, loc=0, scale=1)  # PDF for uniform distribution between 0 and 1
-print(pdf[:10])  # Output: First 10 values of the PDF</pre>
+# Calculate the probability of exactly 6 heads in 10 flips
+prob_exactly_6 = binom.pmf(k=6, n=10, p=0.5)
+print(prob_exactly_6)  # Output: Probability of exactly 6 heads</pre>
+                </div>
+              </details>
+            </li>
+            <li>
+              What is the probability of getting 8 or fewer heads in 12 coin flips? Calculate the CDF for this scenario:
+              <details>
+                <summary>Solution</summary>
+                <div>
+                  <pre class="code-block">from scipy.stats import binom
+
+# Calculate the cumulative probability of 8 or fewer heads in 12 flips
+prob_8_or_fewer = binom.cdf(k=8, n=12, p=0.5)
+print(prob_8_or_fewer)  # Output: Cumulative probability of 8 or fewer heads</pre>
+                </div>
+              </details>
+            </li>
+          </ol>
+        
+          <h3>Normal Distribution</h3>
           <p>
-            Here, the PDF is calculated for 1000 evenly spaced points between 0 and 1 using a uniform distribution with
-            lower bound 0 and upper bound 1.
+            The normal distribution is widely used in statistics. With <code>scipy.stats.norm</code>, 
+            you can compute the probability density function (PDF) and cumulative distribution function (CDF):
           </p>
+          <pre class="code-block">from scipy.stats import norm
+
+# PDF for standard normal distribution
+pdf = norm.pdf(x=0, loc=0, scale=1)
+print(pdf)  # Output: PDF value at x=0
+
+# CDF for standard normal distribution
+cdf = norm.cdf(x=0, loc=0, scale=1)
+print(cdf)  # Output: CDF value at x=0</pre>
+          <p>
+            The PDF calculates the likelihood of a particular value, while the CDF computes the cumulative probability up to a given value.
+          </p>
+        
+          <h4>Example Questions</h4>
+          <ol>
+            <li>
+              A set of test scores is normally distributed with a mean of 70 and a standard deviation of 10. What is the probability that a randomly selected score will be exactly 75?
+              <details>
+                <summary>Solution</summary>
+                <div>
+                  <pre class="code-block">from scipy.stats import norm
+
+# Calculate the probability density for a score of 75
+pdf_75 = norm.pdf(x=75, loc=70, scale=10)
+print(pdf_75)  # Output: PDF value at x=75</pre>
+                </div>
+              </details>
+            </li>
+            <li>
+              What is the probability that a randomly selected score will be 80 or lower, assuming the same distribution (mean = 70, standard deviation = 10)?
+              <details>
+                <summary>Solution</summary>
+                <div>
+                  <pre class="code-block">from scipy.stats import norm
+
+# Calculate the cumulative probability for a score of 80
+cdf_80 = norm.cdf(x=80, loc=70, scale=10)
+print(cdf_80)  # Output: CDF value at x=80</pre>
+                </div>
+              </details>
+            </li>
+          </ol>
+        
         </section>
-        
-
-
-        <section class="data-visualization">
-            <h2>Data Visualization Using NumPy</h2>
-            <p>
-              Data visualization is crucial for understanding and presenting data effectively. NumPy, in combination with Matplotlib, provides tools to create various types of plots and charts to help visualize data distributions and relationships. Below are some common types of visualizations you can create:
-            </p>
-          
-            <h3>1. Line Plots</h3>
-            <p>
-              Line plots are used to display data points connected by straight lines, which is helpful for visualizing trends over time or continuous variables.
-            </p>
-            <pre class="code-block">import numpy as np
-import matplotlib.pyplot as plt
-
-# Generate data
-x = np.linspace(0, 10, 100)
-y = np.sin(x)
-
-# Create line plot
-plt.plot(x, y, color='b', linestyle='-', marker='o')
-plt.title('Sine Wave')
-plt.xlabel('X-axis')
-plt.ylabel('Y-axis')
-plt.grid(True)
-plt.show()</pre>
-          
-            <h3>2. Scatter Plots</h3>
-            <p>
-              Scatter plots show the relationship between two variables by displaying data points on a Cartesian plane. This type of plot helps to identify correlations or patterns.
-            </p>
-            <pre class="code-block">import numpy as np
-import matplotlib.pyplot as plt
-
-# Generate random data
-x = np.random.rand(50)
-y = np.random.rand(50)
-
-# Create scatter plot
-plt.scatter(x, y, color='r', marker='x')
-plt.title('Random Scatter Plot')
-plt.xlabel('X-axis')
-plt.ylabel('Y-axis')
-plt.grid(True)
-plt.show()</pre>
-          
-            <h3>3. Histograms</h3>
-            <p>
-              Histograms are used to visualize the distribution of a dataset by grouping data points into bins and displaying the frequency of each bin.
-            </p>
-            <pre class="code-block">import numpy as np
-import matplotlib.pyplot as plt
-
-# Generate normally distributed data
-data = np.random.randn(1000)
-
-# Create histogram
-plt.hist(data, bins=30, color='g', alpha=0.7)
-plt.title('Histogram of Normally Distributed Data')
-plt.xlabel('Value')
-plt.ylabel('Frequency')
-plt.grid(True)
-plt.show()</pre>
-          
-            <h3>4. Combining Multiple Plots</h3>
-            <p>
-              Combining multiple plots in a single figure can provide more comprehensive insights by comparing different visualizations side by side.
-            </p>
-            <pre class="code-block">import numpy as np
-import matplotlib.pyplot as plt
-
-# Data for line and scatter plots
-x = np.linspace(0, 10, 100)
-y = np.sin(x)
-x_scatter = np.random.rand(50)
-y_scatter = np.random.rand(50)
-
-# Create figure with subplots
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
-
-# Line plot
-ax1.plot(x, y, color='b', linestyle='-', marker='o')
-ax1.set_title('Sine Wave')
-ax1.set_xlabel('X-axis')
-ax1.set_ylabel('Y-axis')
-ax1.grid(True)
-
-# Scatter plot
-ax2.scatter(x_scatter, y_scatter, color='r', marker='x')
-ax2.set_title('Random Scatter Plot')
-ax2.set_xlabel('X-axis')
-ax2.set_ylabel('Y-axis')
-ax2.grid(True)
-
-plt.tight_layout()
-plt.show()</pre>
-          
-            <h3>5. Customizing Plots</h3>
-            <p>
-              Matplotlib allows extensive customization of plots, including colors, labels, and annotations. Customizing plots can help highlight specific aspects of the data.
-            </p>
-            <pre class="code-block">import numpy as np
-import matplotlib.pyplot as plt
-
-# Generate data
-x = np.linspace(0, 10, 100)
-y = np.sin(x)
-
-# Create customized line plot
-plt.plot(x, y, color='purple', linestyle='--', marker='o', label='Sine Wave')
-plt.title('Customized Sine Wave Plot')
-plt.xlabel('X-axis')
-plt.ylabel('Y-axis')
-plt.legend()
-plt.grid(True)
-plt.show()</pre>
-          
-            <p>
-              These examples illustrate how to use NumPy and Matplotlib for effective data visualization. Experiment with different types of plots and customization options to best represent your data.
-            </p>
-          </section>
           
         <section class="practice-exercises">
             <h2>Practice Exercises</h2>

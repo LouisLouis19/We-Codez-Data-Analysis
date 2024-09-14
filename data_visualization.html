@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction to Matplotlib</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Introduction to Matplotlib</h1>
+    </header>
+
+    <div class="container">
+      <aside class="sidebar">
+        <nav>
+          <ul>
+            <li><a href="index.html">Introduction to Pandas</a></li>
+            <li>
+              <a href="numpy_tutorial.html">Introduction to NumPy</a>
+            </li>
+            <li>
+              <a href="data_visualization.html" class="active">Introduction to Matplotlib</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <main>
+        <section class="overview">
+          <h2>What is Matplotlib?</h2>
+          <p>
+            Matplotlib is a comprehensive library for creating static, animated,
+            and interactive visualizations in Python. It is one of the most
+            widely used data visualization libraries, providing tools to create
+            a wide range of charts and plots.
+          </p>
+
+          <h3>Installation</h3>
+          <p>To install Matplotlib, use pip:</p>
+          <pre class="code-block">pip install matplotlib</pre>
+
+          <h3>Importing Matplotlib</h3>
+          <p>
+            To use Matplotlib, you need to import it into your Python script:
+          </p>
+          <pre class="code-block">import matplotlib.pyplot as plt</pre>
+        </section>
+
+        <section class="basic-plotting">
+          <h2>Basic Plotting</h2>
+
+          <h3>Creating a Simple Plot</h3>
+          <p>Here is how you can create a simple line plot:</p>
+          <pre class="code-block">
+import matplotlib.pyplot as plt
+
+# Data
+x = [1, 2, 3, 4]
+y = [10, 20, 25, 30]
+
+# Create plot
+plt.plot(x, y)
+
+# Add title and labels
+plt.title("Simple Line Plot")
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+
+# Display plot
+plt.show()
+          </pre>
+
+          <h3>Plotting Multiple Lines</h3>
+          <p>You can plot multiple lines on the same chart:</p>
+          <pre class="code-block">
+import matplotlib.pyplot as plt
+
+# Data
+x = [1, 2, 3, 4]
+y1 = [10, 20, 25, 30]
+y2 = [30, 25, 20, 10]
+
+# Create plot
+plt.plot(x, y1, label="Line 1")
+plt.plot(x, y2, label="Line 2")
+
+# Add title, labels, and legend
+plt.title("Multiple Line Plot")
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+plt.legend()
+
+# Display plot
+plt.show()
+          </pre>
+        </section>
+
+        <section class="customizing-plots">
+          <h2>Customizing Plots</h2>
+
+          <h3>Changing Line Styles and Colors</h3>
+          <p>You can customize the style and color of lines:</p>
+          <pre class="code-block">
+import matplotlib.pyplot as plt
+
+# Data
+x = [1, 2, 3, 4]
+y1 = [10, 20, 25, 30]
+y2 = [30, 25, 20, 10]
+
+# Create plot with customized lines
+plt.plot(x, y1, color="red", linestyle="--", marker="o", label="Dashed Red Line")
+plt.plot(x, y2, color="blue", linestyle="-.", marker="s", label="Dash-Dot Blue Line")
+
+# Add title, labels, and legend
+plt.title("Customized Line Plot")
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+plt.legend()
+
+# Display plot
+plt.show()
+          </pre>
+
+          <h3>Adding Grid and Annotations</h3>
+          <p>Enhance your plots with grids and annotations:</p>
+          <pre class="code-block">
+import matplotlib.pyplot as plt
+
+# Data
+x = [1, 2, 3, 4]
+y = [10, 20, 25, 30]
+
+# Create plot
+plt.plot(x, y, marker="o")
+
+# Add grid
+plt.grid(True)
+
+# Add annotation
+plt.annotate("Highest Point", xy=(4, 30), xytext=(3, 25),
+             arrowprops=dict(facecolor='black', shrink=0.05))
+
+# Add title and labels
+plt.title("Plot with Grid and Annotation")
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+
+# Display plot
+plt.show()
+          </pre>
+        </section>
+
+        <section class="other-plot-types">
+          <h2>Other Plot Types</h2>
+
+          <h3>Bar Plot</h3>
+          <p>Creating a bar plot:</p>
+          <pre class="code-block">
+import matplotlib.pyplot as plt
+
+# Data
+categories = ["A", "B", "C", "D"]
+values = [5, 7, 3, 8]
+
+# Create bar plot
+plt.bar(categories, values)
+
+# Add title and labels
+plt.title("Bar Plot")
+plt.xlabel("Categories")
+plt.ylabel("Values")
+
+# Display plot
+plt.show()
+          </pre>
+
+          <h3>Scatter Plot</h3>
+          <p>Creating a scatter plot:</p>
+          <pre class="code-block">
+import matplotlib.pyplot as plt
+
+# Data
+x = [1, 2, 3, 4]
+y = [10, 20, 25, 30]
+sizes = [50, 100, 200, 300]
+
+# Create scatter plot
+plt.scatter(x, y, s=sizes, c="green", alpha=0.5)
+
+# Add title and labels
+plt.title("Scatter Plot")
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+
+# Display plot
+plt.show()
+          </pre>
+
+          <h3>Histogram</h3>
+          <p>Creating a histogram:</p>
+          <pre class="code-block">
+import matplotlib.pyplot as plt
+
+# Data
+data = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5]
+
+# Create histogram
+plt.hist(data, bins=5, color="purple", alpha=0.7)
+
+# Add title and labels
+plt.title("Histogram")
+plt.xlabel("Value")
+plt.ylabel("Frequency")
+
+# Display plot
+plt.show()
+          </pre>
+        </section>
+
+        <section class="data-visualization">
+          <h2>Data Visualization Using NumPy and Pandas</h2>
+          <p>
+            Data visualization is crucial for understanding and presenting data
+            effectively. NumPy and Pandas, in combination with Matplotlib,
+            provide tools to create various types of plots and charts to help
+            visualize data distributions and relationships. Below are some
+            common types of visualizations you can create:
+          </p>
+
+          <h3>1. Line Plots</h3>
+          <p>
+            Line plots are used to display data points connected by straight
+            lines, which is helpful for visualizing trends over time or
+            continuous variables.
+          </p>
+          <pre class="code-block">
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate data
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+# Create line plot
+plt.plot(x, y, color='b', linestyle='-', marker='o')
+plt.title('Sine Wave')
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.grid(True)
+plt.show()</pre
+          >
+
+          <h3>2. Scatter Plots</h3>
+          <p>
+            Scatter plots show the relationship between two variables by
+            displaying data points on a Cartesian plane. This type of plot helps
+            to identify correlations or patterns.
+          </p>
+          <pre class="code-block">
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate random data
+x = np.random.rand(50)
+y = np.random.rand(50)
+
+# Create scatter plot
+plt.scatter(x, y, color='r', marker='x')
+plt.title('Random Scatter Plot')
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.grid(True)
+plt.show()</pre
+          >
+
+          <h3>3. Histograms</h3>
+          <p>
+            Histograms are used to visualize the distribution of a dataset by
+            grouping data points into bins and displaying the frequency of each
+            bin.
+          </p>
+          <pre class="code-block">
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate normally distributed data
+data = np.random.randn(1000)
+
+# Create histogram
+plt.hist(data, bins=30, color='g', alpha=0.7)
+plt.title('Histogram of Normally Distributed Data')
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.grid(True)
+plt.show()</pre
+          >
+
+          <h3>4. Combining Multiple Plots</h3>
+          <p>
+            Combining multiple plots in a single figure can provide more
+            comprehensive insights by comparing different visualizations side by
+            side.
+          </p>
+          <pre class="code-block">
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Data for line and scatter plots
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+x_scatter = np.random.rand(50)
+y_scatter = np.random.rand(50)
+
+# Create figure with subplots
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
+
+# Line plot
+ax1.plot(x, y, color='b', linestyle='-', marker='o')
+ax1.set_title('Sine Wave')
+ax1.set_xlabel('X-axis')
+ax1.set_ylabel('Y-axis')
+ax1.grid(True)
+
+# Scatter plot
+ax2.scatter(x_scatter, y_scatter, color='r', marker='x')
+ax2.set_title('Random Scatter Plot')
+ax2.set_xlabel('X-axis')
+ax2.set_ylabel('Y-axis')
+ax2.grid(True)
+
+plt.tight_layout()
+plt.show()</pre
+          >
+
+          <h3>5. Customizing Plots</h3>
+          <p>
+            Matplotlib allows extensive customization of plots, including
+            colors, labels, and annotations. Customizing plots can help
+            highlight specific aspects of the data.
+          </p>
+          <pre class="code-block">
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate data
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+# Create customized line plot
+plt.plot(x, y, color='purple', linestyle='--', marker='o', label='Sine Wave')
+plt.title('Customized Sine Wave Plot')
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.legend()
+plt.grid(True)
+plt.show()</pre
+          >
+
+          <h3>6. Integrating Pandas with Matplotlib</h3>
+          <p>
+            Pandas, a powerful data manipulation library, can be seamlessly
+            integrated with Matplotlib for advanced data visualization. This
+            combination allows for easy plotting of data directly from Pandas
+            DataFrames.
+          </p>
+          <pre class="code-block">
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Create a DataFrame
+data = {
+    'Height': [150, 160, 165, 170, 180, 190],
+    'Weight': [50, 60, 65, 70, 80, 90]
+}
+df = pd.DataFrame(data)
+
+# Plotting directly from DataFrame
+df.plot(kind='scatter', x='Height', y='Weight', color='blue', marker='o')
+
+# Adding title and labels
+plt.title('Height vs Weight')
+plt.xlabel('Height (cm)')
+plt.ylabel('Weight (kg)')
+plt.grid(True)
+plt.show()
+          </pre>
+
+          <p>
+            These examples illustrate how to use NumPy, Pandas, and Matplotlib
+            for effective data visualization. Experiment with different types of
+            plots and customization options to best represent your data.
+          </p>
+        </section>
+        <section class="practice-exercises">
+            <h2>Practice Exercises</h2>
+          
+            <h4>1. Analyzing Sales Data</h4>
+            <p>
+              You have a dataset of monthly sales for a year stored in a Pandas DataFrame. Write a program to:
+              <ol>
+                <li>Plot the sales data as a line plot.</li>
+                <li>Highlight the month with the highest sales.</li>
+                <li>Add annotations to indicate sales figures above a certain threshold.</li>
+              </ol>
+            </p>
+            <details>
+              <summary>Solution</summary>
+              <div>
+                <pre class="code-block">import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Create DataFrame with monthly sales data
+months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+sales = [200, 220, 250, 270, 300, 310, 400, 390, 360, 330, 310, 300]
+df = pd.DataFrame({"Month": months, "Sales": sales})
+
+# Plot the sales data
+plt.plot(df['Month'], df['Sales'], marker='o', label='Sales')
+
+# Highlight the month with the highest sales
+max_sales_idx = df['Sales'].idxmax()
+plt.scatter(df.loc[max_sales_idx, 'Month'], df.loc[max_sales_idx, 'Sales'], color='red', label='Max Sales')
+
+# Add annotations for sales above a certain threshold
+threshold = 350
+for i in range(len(df)):
+    if df.loc[i, 'Sales'] > threshold:
+        plt.annotate(f"{df.loc[i, 'Sales']}", (df.loc[i, 'Month'], df.loc[i, 'Sales'] + 10))
+
+# Customize the plot
+plt.title("Monthly Sales Data")
+plt.xlabel("Month")
+plt.ylabel("Sales")
+plt.legend()
+plt.grid(True)
+
+# Display the plot
+plt.show()</pre>
+              </div>
+            </details>
+            <br />
+          
+            <h4>2. Visualizing Correlation Between Variables</h4>
+            <p>
+              Generate two sets of random data using NumPy and create a scatter plot to visualize the correlation between the two variables. Add a trend line to the plot.
+            </p>
+            <details>
+              <summary>Solution</summary>
+              <div>
+                <pre class="code-block">import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate random data
+np.random.seed(0)
+x = np.random.rand(50) * 100
+y = 3 * x + np.random.randn(50) * 50
+
+# Create scatter plot
+plt.scatter(x, y, color='blue', label='Data Points')
+
+# Add trend line
+coefficients = np.polyfit(x, y, 1)
+trendline = np.poly1d(coefficients)
+plt.plot(x, trendline(x), color='red', label='Trend Line')
+
+# Customize the plot
+plt.title("Scatter Plot with Trend Line")
+plt.xlabel("X Variable")
+plt.ylabel("Y Variable")
+plt.legend()
+plt.grid(True)
+
+# Display the plot
+plt.show()</pre>
+              </div>
+            </details>
+            <br />
+          
+            <h4>3. Analyzing Population Growth</h4>
+            <p>
+              You are provided with population data over a 10-year period. Create a bar plot to visualize the population growth and calculate the average growth rate per year. Annotate the plot with the growth rate for each year.
+            </p>
+            <details>
+              <summary>Solution</summary>
+              <div>
+                <pre class="code-block">import pandas as pd
+import matplotlib.pyplot as plt
+
+# Create DataFrame with population data
+years = np.arange(2010, 2020)
+population = [2.5, 2.7, 2.9, 3.0, 3.2, 3.3, 3.5, 3.7, 3.8, 4.0]
+df = pd.DataFrame({"Year": years, "Population": population})
+
+# Calculate annual growth rates
+df['Growth Rate (%)'] = df['Population'].pct_change() * 100
+
+# Create bar plot for population growth
+plt.bar(df['Year'], df['Population'], color='lightblue')
+
+# Annotate the plot with growth rates
+for i in range(1, len(df)):
+    plt.annotate(f"{df.loc[i, 'Growth Rate (%)']:.2f}%", (df.loc[i, 'Year'], df.loc[i, 'Population'] + 0.05))
+
+# Customize the plot
+plt.title("Population Growth Over 10 Years")
+plt.xlabel("Year")
+plt.ylabel("Population (in billions)")
+plt.grid(axis='y')
+
+# Display the plot
+plt.show()</pre>
+              </div>
+            </details>
+            <br />
+          
+            <h4>4. Examining Stock Prices</h4>
+            <p>
+              You are given daily stock prices for a company over the last month. Write a program to:
+              <ol>
+                <li>Plot the stock prices as a line chart.</li>
+                <li>Highlight the days where the stock price increased compared to the previous day.</li>
+                <li>Calculate and display the moving average (7-day) of the stock prices on the same chart.</li>
+              </ol>
+            </p>
+            <details>
+              <summary>Solution</summary>
+              <div>
+                <pre class="code-block">import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Create DataFrame with stock price data
+dates = pd.date_range(start='2023-08-01', end='2023-08-31')
+prices = np.random.randn(31).cumsum() + 100  # Simulate stock prices
+df = pd.DataFrame({"Date": dates, "Price": prices})
+
+# Calculate daily price change
+df['Price Change'] = df['Price'].diff()
+
+# Calculate 7-day moving average
+df['7-Day MA'] = df['Price'].rolling(window=7).mean()
+
+# Plot stock prices
+plt.plot(df['Date'], df['Price'], marker='o', label='Stock Price')
+
+# Highlight days with price increase
+price_increase = df[df['Price Change'] > 0]
+plt.scatter(price_increase['Date'], price_increase['Price'], color='green', label='Price Increase')
+
+# Plot 7-day moving average
+plt.plot(df['Date'], df['7-Day MA'], color='orange', linestyle='--', label='7-Day Moving Average')
+
+# Customize the plot
+plt.title("Daily Stock Prices with Moving Average")
+plt.xlabel("Date")
+plt.ylabel("Price")
+plt.legend()
+plt.grid(True)
+
+# Display the plot
+plt.show()</pre>
+              </div>
+            </details>
+            <br />
+          
+            <h4>5. Customer Spending Analysis</h4>
+            <p>
+              You have data on customer spending habits at a store. Write a program to:
+              <ol>
+                <li>Group the customers into different spending categories (e.g., low, medium, high) based on their total spending.</li>
+                <li>Plot the distribution of customers across these spending categories using a pie chart.</li>
+                <li>Annotate the chart with the percentage of customers in each category.</li>
+              </ol>
+            </p>
+            <details>
+              <summary>Solution</summary>
+              <div>
+                <pre class="code-block">import pandas as pd
+import matplotlib.pyplot as plt
+
+# Create DataFrame with customer spending data
+data = {"Customer ID": range(1, 101), "Total Spending": np.random.rand(100) * 1000}
+df = pd.DataFrame(data)
+
+# Define spending categories
+bins = [0, 250, 500, 1000]
+labels = ['Low', 'Medium', 'High']
+df['Spending Category'] = pd.cut(df['Total Spending'], bins=bins, labels=labels)
+
+# Calculate the distribution of customers across categories
+category_counts = df['Spending Category'].value_counts()
+
+# Plot pie chart
+plt.pie(category_counts, labels=category_counts.index, autopct='%1.1f%%', colors=['lightgreen', 'lightblue', 'lightcoral'])
+
+# Customize the plot
+plt.title("Distribution of Customers by Spending Category")
+
+# Display the plot
+plt.show()</pre>
+              </div>
+            </details>
+            <br />
+          </section>
+          
+      </main>
+    </div>
+  </body>
+</html>
